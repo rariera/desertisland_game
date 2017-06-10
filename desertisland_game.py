@@ -234,7 +234,7 @@ beach = {
     Behind you there is the endless ocean, the waves lapping at the shore, so reminisent
     of the storm that caused you to wash up on this desolate beach. To your left, a coconut tree sags""",
     'tools': [],
-    'items': [coconut1, coconut2, rope, seagull]
+    'items': [coconut, rope, seagull]
     }
 
 rocks = {
