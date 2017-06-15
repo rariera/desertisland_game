@@ -15,6 +15,7 @@ import random
     #Cloning coconuts - coconut(2)?
     
     
+#This thing can change both things! MWA HAHAHAHAHAHAHAHA
 
 
 #Things to do:
