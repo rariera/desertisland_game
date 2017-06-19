@@ -138,6 +138,7 @@ def write(textbox, string):
 
 def entryget(Event = None):
     userinput = input.get()
+    print(userinput)
     if userinput == 'yay':
         write(text, 'Yeah, that\'s it!')
     elif userinput == '':
@@ -171,7 +172,7 @@ userinput = ''
 confirm = Button(text = 'Enter', command = entryget)
 confirm.grid(row = 1, column = 1)
 
-root.bind('<Return>', entryget)
+input.bind('<Return>', entryget)
 
 
 
@@ -422,7 +423,7 @@ def initialisation():
 
     InitTuple = collections.namedtuple('InitTuple', ['character', 'turn_no'])
     character = Character(loc = [1,2], health = 20, inventory = [])
-
+    print('initialisaton is awesome!')
     roomreset()
     global turn_no
     turn_no = 0
@@ -433,8 +434,10 @@ def initialisation():
 #Calling initialisation...
 it = initialisation()
 character = it.character
-turn_no = it.turn_no
-write(text, str(turn_no))
+#turn_no = it.turn_no
+global turn_no
+print(str(turn_no))
+
 
 
 
@@ -448,6 +451,8 @@ def loop():
 ##    command = input("""What will you do?
 ##>>> """)
     cmd = parsecommand(userinput)
+    print(cmd.verb)
+    print(cmd.item)
     if cmd.item:
         if cmd.verb in ['get']:
             collection = character.room['items']
@@ -462,12 +467,11 @@ def loop():
         item = finditem(cmd.item, collection)
     else:
         item = 'null'
-
+    
             
 #This is all of the commands that can be used by the player
-    if userinput == '':
-        return
-    elif cmd.verb in ['help', 'h']:
+
+    if cmd.verb in ['help', 'h']:
         write(text, """You hear a mysterious voice coming from the nearest place of concealment.
 It says: Hello! I am the Mysterious Help Station, or MHS for short.
 I will aid you in your quest. Here is a list of commands you can use to survive in this world.
@@ -718,9 +722,10 @@ You will lose HP through battles, moving from place to place, and gradual starva
 please consult the MHS by typing help''')
         #continue
 
+
     #This is turn-based health deductor
-    if turn_no < 5:
-        turn_no = turn_no + 1
+    if it.turn_no < 5:
+        turn_no = it.turn_no + 1
     else:
         character.health = character.health - 1
         turn_no = 0
@@ -739,10 +744,10 @@ regain health soon, you will DIE!!!''')
         write(text, '''You stumble a few paces. You slowly sway, and then fall into the dirt,
 utterly exhausted. You do not move again...''')
         death()
+
     print('END OF LOOP!')
-root.after(100, loop)
 
 
 
-
+print('the test is complete')
 root.mainloop()
