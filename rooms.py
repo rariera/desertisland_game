@@ -1,4 +1,4 @@
-import items
+from items import *
 import tools
 
 #This is the info about the rooms...

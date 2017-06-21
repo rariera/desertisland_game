@@ -172,7 +172,7 @@ userinput = ''
 confirm = Button(text = 'Enter', command = entryget)
 confirm.grid(row = 1, column = 1)
 
-input.bind('<Return>', entryget)
+input.bind('<Return>', loop)
 
 
 
