@@ -1,14 +1,10 @@
-import rooms
+from rooms import *
 import tools
 import items
+import collections
 
 
-class Character(object):
-    def __init__(self, loc, health, inventory = []):
-        self.loc = loc
-        self.inventory = inventory
-        self.health = health
-        chooseroom(self)
+
         
 def parsecommand(userinput):
     '''This is where i separates the command into the 'verb' (e.g. get), and the 'item' (e.g. coconut)'''
@@ -55,14 +51,14 @@ def roomreset():
     rocks['items'] = [rock, starfish, shellfish]
 
 
-def get(item):
+def get(item, character):
     if item not in character.inventory:
         character.inventory.append(item)
         item['inv'] = item['inv'] + 1
     else:
         item['inv'] = item['inv'] + 1
 
-def invcheck():
+def invcheck(character):
     for item in character.inventory:
         if item['inv'] < 1:
             character.inventory.remove(item)

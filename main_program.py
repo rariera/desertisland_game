@@ -1,45 +1,39 @@
 #Coconut make a class!!! then can make instances of class (see ex.41, Learn python the hard way)
 
-from tkinter import *
-import time
-from PIL import Image, ImageTk
-import sys
-import textwrap
-import collections
-import random
+#from tkinter import *
+#import time
+#from PIL import Image, ImageTk
+#import sys
+#import textwrap
+#import collections
+#import random
 
-import rooms
+#import rooms
 from items import *
-import gfunctions
-import tfunctions
-import cfunctions
+#import gfunctions
+#import tfunctions
+#import cfunctions
 from tkintermaker import *
 from initalisation import *
-import check_command
-import health
-import loop
+#import check_command
+#import health
+#import loop
+from loop import entry, loop
 
-class Character(object):
-    def __init__(self, loc, health, inventory = []):
-        self.loc = loc
-        self.inventory = inventory
-        self.health = health
-        chooseroom(self)
+entry.bind('<Return>', loop)
 
-itemslist = [coconut, rope, seagull, rock, starfish, shellfish, stick, vine, berry, wood, axe]
+
+
 toolslist = [axe]
 tkintermake()
 
-
-#Calling initialisation...
+#Calling initialisation...  
 it = initialisation()
-character = it.character
-#turn_no = it.turn_no
-global turn_no
-print(str(turn_no))
+#character = it.character
+turn_no = it.turn_no
 
 
-
+root.configure(background = 'blue4')
 print('the test is complete')
 root.mainloop()
 

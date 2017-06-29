@@ -1,35 +1,50 @@
 import check_command
 import rooms
-import items
-import tools
+from items import *
 import gfunctions
 import cfunctions
 import health
+from tkinter import *
+from tkintermaker import *
+from gfunctions import parsecommand
 
-def loop():
+itemslist = [coconut, rope, seagull, rock, starfish, shellfish, stick, vine, berry, wood, axe]
+
+def entryget(Event = None):
+	global userinput
+	userinput = entry.get()
+	print("inputsssss")
+	print(userinput)
+	if userinput == 'yay':
+		write(text, 'Yeah, that\'s it!')
+	elif userinput == '':
+		write(text, 'No, you need to type something in!')
+
+global turn_no
+turn_no = 0
+
+def loop(self):
     entryget()
     cmd = parsecommand(userinput)
-    print(cmd.verb)
-    print(cmd.item)
-    if cmd.item:
-        if cmd.verb in ['get']:
-            collection = character.room['items']
-        elif cmd.verb in ['examine', 'ex', 'eat', 'use']:
-            inventory_list = [i['name'] for i in character.inventory]
-            if cmd.item in inventory_list:
-                collection = character.inventory
-            else:
-                collection = character.room['items']
-        else:
-            collection = itemslist
-        item = finditem(cmd.item, collection)
-    else:
-        item = 'null'
+    collection = itemslist
+    item = gfunctions.finditem(cmd.item, collection)
 
-    check_command()
-    health_check()
-    health_warning()
-    starvation_check()
+    check_command.check_command(cmd, item)
+    check_command.chealth_check(turn_no)
+    check_command.chealth_warning()
+    check_command.cstarvation_check()
+
+entry = Entry()
+entry.grid(row = 1, column = 0)
+
+
+
+confirm = Button(text = 'Enter', command = loop)
+confirm.grid(row = 1, column = 1)
+
+
+
+
 
     
 
