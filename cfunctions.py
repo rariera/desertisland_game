@@ -134,7 +134,7 @@ def eat_command():
             character.health = character.health + item['health']
             if character.health > 20:
                 character.health = 20
-            write(text, 'Your health level is now ' + str(character.health))
+            write(text, 'Your health level is now ' + str(character.health) + '/20')
         else:
             write(text, 'You aren\'t in need of energy just now')
             #continue

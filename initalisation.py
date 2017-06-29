@@ -27,7 +27,7 @@ def initialisation():
 
 
     InitTuple = collections.namedtuple('InitTuple', ['character', 'turn_no'])
-    character = Character(loc = [1,2], health = 20, inventory = [])
+    character = main_program.Character(loc = [1,2], health = 20, inventory = [])
     print('initialisaton is awesome!')
     roomreset()
     global turn_no
