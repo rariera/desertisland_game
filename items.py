@@ -4,7 +4,7 @@
 
 coconut = {
     'name': 'coconut',
-    'desc': "Here is a coconut",
+    'desc': "Consider the coconut!",
     'getable': True,
     'edible': True,
     'usable': False,
@@ -13,7 +13,7 @@ coconut = {
         }
 rope = {
     'name': 'rope',
-    'desc': 'Here is a wet piece of rope. It must have washed up from your shipwreck.',
+    'desc': 'Here is a wet piece of rope. It must have washed up from your wreck.',
     'getable': True,
     'edible': False,
     'usable': True,
@@ -22,8 +22,8 @@ rope = {
     }
 seagull = {
     'name': 'seagull',
-    'desc': '''A seagull swoops in the sky, searching for food. It eyes you in a way that
-makes you feel uncomfortable...''',
+    'desc': '''A seagull swoops in the sky, searching for food. It eyes you in a way
+that makes you feel uncomfortable...''',
     'getable': False,
     'edible': True,
     'usable': False,
@@ -32,7 +32,8 @@ makes you feel uncomfortable...''',
     }
 rock = {
     'name': 'rock',
-    'desc': 'Here is a sharp piece of rock. Maybe you could use it to make something...',
+    'desc': '''Here is a sharp piece of rock. Maybe you could use it to make 
+something...''',
     'getable': True,
     'edible': False,
     'usable': True,
@@ -59,8 +60,8 @@ shellfish = {
     }
 stick = {
     'name': 'stick',
-    'desc': '''An old stick. You stare at it for a moment. You wonder about what it could have been, and
-    what it may yet become.''',
+    'desc': '''An old stick. You stare at it for a moment. You wonder about what it
+could have been, and what it may yet become.''',
     'getable': True,
     'edible': False,
     'usable': False,
@@ -69,7 +70,8 @@ stick = {
     }
 vine = {
     'name': 'vine',
-    'desc': 'You pull on a vine. It comes off in your hand. Easy to break, but may still be useful...',
+    'desc': '''You pull on a vine. It comes off in your hand. Easy to break, but may
+still be useful...''',
     'getable': True,
     'edible': False,
     'usable': False,
@@ -78,8 +80,8 @@ vine = {
     }
 berry = {
     'name': 'berry',
-    'desc': """A purple berry. You roll it in your hand. It could be delicious, but what
-    if it kills you instead?""",
+    'desc': """A purple berry. You roll it in your hand. It could be delicious, but
+what if it kills you instead?""",
     'getable': True,
     'edible': True,
     'usable': False,
@@ -88,9 +90,9 @@ berry = {
     }
 rock = {
 	'name' : 'rock',
-	'desc': '''Before you lies a rock. You weigh it in your hand. Somewhere,
-	a memory stirs inside you. This is a sedimentary rock, the kind known as
-	'sandstone'....''',
+	'desc': '''Before you lies a rock. You weigh it in your hand.
+Somewhere, a memory stirs inside you. This is a sedimentary rock,
+the kind known as 'sandstone'....''',
 	'getable': True,
 	'edible': False,
 	'usable': False,
@@ -118,7 +120,8 @@ axe = {
     'usable': True,
     'health': 0,
     'ingredients': [rock, vine, stick],
-    'string': 'You use the axe. The sapling falls to the ground, another defeated foe >:). You got 1 wood.',
+    'string': '''You use the axe. The sapling falls to the ground, another defeated
+foe >:). You got 1 wood.''',
     'getitem': wood,
     'settings': [5],
     'inv': 0

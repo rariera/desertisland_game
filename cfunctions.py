@@ -12,28 +12,35 @@ noreplace_write = Output.noreplace_write
 
 
 def help_command():
-    write(tkintermaker.text, """You hear a mysterious voice coming from the nearest place of concealment.
-It says: Hello! I am the Mysterious Help Station, or MHS for short.
-I will aid you in your quest. Here is a list of commands you can use to survive in this world.
+    write(tkintermaker.text, """You hear a mysterious voice coming from the nearest place of
+concealment. It says: Hello! I am the Mysterious Help Station,
+or MHS for short. I will aid you in your quest. Here is a list of
+commands you can use to survive in this world.
 Use it well...
 
 look/l - Tells you what you can see.
-get _______ - Can be used to pick up an item - Note not all items are getable.
+get _______ - Can be used to pick up an item - Note not all items are
+              getable.
 inventory/i - Tells you what is in your inventory
-eat _______ - Can be used to eat an item - Note not all items are edible.
+eat _______ - Can be used to eat an item - Note not all items are
+              edible.
 health - Tells you how much health you have left
 help - I will come and aid you once more... if you say please...
-n, s, w, e - Used to move from place to place - Note you can only go in certain directions
-            in each room, as indicated by the description.
-examine/ex - In some settings, there are mini-locations that you can enter - as indicated
-by the description
-enter/exit - can be used to enter or exit a mini-location inside a room, as indicated by description
+n, s, w, e - Used to move from place to place - Note you can only 
+move in certain directions in each room, as indicated by the 
+description
+examine/ex - In some settings, there are mini-locations that you can
+             enter - as indicated by the description
+enter/exit - can be used to enter or exit a mini-location inside a
+room, as indicated by description
 rest - used to restore 10 HP - can only be done inside safe location
 
-If you need help on a specific topic, type 'topics' in the help prompt, and I will list the topics
-I can assist you on. If you wish to leave the MHS, type 'leave' to exit the help station.
+If you need help on a specific topic, type 'topics' in the help 
+prompt, and I will list the topics I can assist you on. If you wish
+to leave the MHS, type 'leave' to exit the help station.
 
-Please note, some commands are secret, and must be discovered for yourself.
+Please note, some commands are secret, and must be discovered for 
+yourself.
 Good luck, Traveller....
 (The voice fades away)""")
     
@@ -53,25 +60,28 @@ Good luck, Traveller....
                           - 
                     ''')
         elif helpcmd.verb == 'game':
-            write(tkintermaker.text, '''The desert island game is a game where you are trapped on a deserted island.
-The aim of the game is to survive, and eventually make your escape.''')
+            write(tkintermaker.text, '''The desert island game is a game where you are trapped on a deserted
+island. The aim of the game is to survive, and eventually make your
+escape.''')
         elif helpcmd.verb == 'food':
             write(tkintermaker.text, '''Food can be used in the game to restore HP. It can be stored in the
-inventory until time of consumption, at which point it will be removed from the inventory.''')
+inventory until time of consumption, at which point it will be 
+removed from the inventory.''')
         elif helpcmd.verb == 'crafting':
             write(tkintermaker.text, '''Crafting is where you combine multiple different items together into
-a new item. This can be done using the 'make' command, written as 'make [item]', and if you have
-all the neccasary items for the item, it will be created and put into your inventory. The items
-used to make it will then be erased.''')
+a new item. This can be done using the 'make' command, written as 
+'make [item]', and if you have all the neccasary items for the item,
+it will be created and put into your inventory. The items used to 
+make it will then be erased.''')
         elif helpcmd.verb in ['HP', 'hp', 'health']:
-            write(tkintermaker.text, '''Health points, or HP, is a way of measuring a characters health. If your HP
-reaches 0, you will DIE!!!! In order to regain HP, you can eat food or rest in a safe place.
-You will lose HP through battles, moving from place to place, and gradual starvation(1 HP every 5 turns)''')
+            write(tkintermaker.text, '''Health points, or HP, is a way of measuring a characters health. If
+your HP reaches 0, you will DIE!!!! In order to regain HP, you can
+eat food or rest in a safe place. You will lose HP through moving
+from place to place and gradual starvation(1 HP every 5 turns)''')
 
-                  
+
 def look_command(character):
     write(tkintermaker.text, character.room['setting'])
-    print(character.room['setting'])
     
 def items_command(character):
     name_list = [i['name'] for i in character.room['items']]
@@ -81,7 +91,8 @@ def items_command(character):
 
 def get_command(cmd, character, item):
     if cmd.item == 'trout' and character.room == rocks:
-        write(tkintermaker.text, 'You try to grab the trout.... But it eludes you, staring back in disdain.')
+        write(tkintermaker.text, '''You try to grab the trout.... But it eludes you, staring back in 
+disdain.''')
         write(tkintermaker.text, 'If only you had something to catch it in...')
         #continue
     if cmd.item == 'seagull' and character.room == beach:
@@ -97,9 +108,6 @@ def get_command(cmd, character, item):
         write(tkintermaker.text, 'get... what? That ain\'t even in this place!')
     elif not item['getable']:
         write(tkintermaker.text, 'You can\'t pick that up!')
-    else:
-        write(tkintermaker.text, 'ERROR!!! REALITY DISSOLVING! TIMELINE RESETING! YOU DISCOVERED A BUG!!! AHHHHH!')
-        death()
 
 
 def use_command(character):
@@ -112,7 +120,7 @@ def use_command(character):
     elif item in character.inventory:
         write(tkintermaker.text, 'You can\'t use that!')
     else:
-        write(tkintermaker.text, 'What??? You can\'t use something you don\'t have which is not a tool!!! Dude....')
+        write(tkintermaker.text, 'What??? You can\'t use something you don\'t have which is not a tool!!')
             
 def inventory_command(character):
     if len(character.inventory) > 0:
@@ -120,7 +128,6 @@ def inventory_command(character):
         write(tkintermaker.text, ', '.join(inventory_list))
     else:
         write(tkintermaker.text, "You have nothing in your inventory... so sad.")
-    #continue
 
 def eat_command(cmd, character, item):
     if item == 'null':
@@ -227,7 +234,8 @@ def rest_command(character):
         if character.health > 20:
             character.health = 20
     else:
-        write(tkintermaker.text, 'Dude, what kind of survivalist sleeps in a potentially hostile location???')
+        write(tkintermaker.text, '''Dude, what kind of survivalist sleeps in a potentially hostile 
+location???''')
 
 def teleport_command(character):
     for i in roomslist:
@@ -241,8 +249,8 @@ def teleport_command(character):
 def _get_command(character, item):
     if item in itemslist:
         if len(character.inventory) > 10:
-            write(tkintermaker.text, '''Caution! Your inventory is less than 10! In order to \'get\' things, you will need to
-                  keep your items under 10!''')
+            write(tkintermaker.text, '''Caution! Your inventory is less than 10! In order to \'get\' things,
+you will need to keep your items under 10!''')
         get(item, character)
     else:
         write(tkintermaker.text, 'not real, dude.')

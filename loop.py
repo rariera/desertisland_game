@@ -13,6 +13,7 @@ itemslist = [coconut, rope, seagull, rock, starfish, shellfish, stick, vine, ber
 def entryget(Event = None):
 	global userinput
 	userinput = entry.get()
+	entry.delete(0,'end')
 	print("inputsssss")
 	print(userinput)
 	if userinput == 'yay':
@@ -22,6 +23,7 @@ def entryget(Event = None):
 
 global turn_no
 turn_no = 0
+
 
 def loop(self):
     entryget()
