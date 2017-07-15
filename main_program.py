@@ -7,20 +7,12 @@ from loop import entry, loop
 
 entry.bind('<Return>', loop)
 
-
-
 toolslist = [axe]
-#root = tkintermake()
 
-#Calling initialisation...  
+#Calling initialisation...
 it = initialisation()
-#character = it.character
 turn_no = it.turn_no
 
 
-
-print('the test is complete')
 root = tkintermake()
 root.mainloop()
-
-

@@ -1,5 +1,6 @@
 from tkinter import *
 from PIL import ImageTk
+import tkinter.scrolledtext as ScrolledText
 
 
 #import check_command
@@ -31,7 +32,7 @@ def showoimg():
 	
 cont = Button(text = 'Continue?', command = showimg)
 canvas = Canvas(width = 533, height = 535)
-text = Text(width = 70, height = 15)
+text = ScrolledText.ScrolledText(width = 70, height = 15)
 _frames = [ PhotoImage(file='guy_horse.gif', format = 'gif -index %i' % i) for i in range(0,4) ]
 _photo = ImageTk.PhotoImage(file = 'desert.png')
 

@@ -44,7 +44,7 @@ def chooseroom(character):
     elif character.loc == [3,2]:
         character.room = mountain
     else:
-        write(text, 'I can\'t choose a room!!!')
+        print('I can\'t choose a room!!!')
 
 def roomreset():
     beach['items'] = [coconut, rope, seagull]
