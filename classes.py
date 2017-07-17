@@ -14,4 +14,6 @@ class Output(object):
 		textbox.delete('1.0', END)
 		textbox.insert('end', string)
 	def noreplace_write(textbox, string):
+		textbox.insert('end', '''
+''')
 		textbox.insert('end', string)

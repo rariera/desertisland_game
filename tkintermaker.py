@@ -34,7 +34,7 @@ cont = Button(text = 'Continue?', command = showimg)
 canvas = Canvas(width = 533, height = 535)
 text = ScrolledText.ScrolledText(width = 70, height = 15)
 _frames = [ PhotoImage(file='guy_horse.gif', format = 'gif -index %i' % i) for i in range(0,4) ]
-_photo = ImageTk.PhotoImage(file = 'desert.png')
+_photo = ImageTk.PhotoImage(file = 'beginning_animation.gif')
 
 showimg()
 

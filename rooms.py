@@ -30,10 +30,10 @@ jungle = {
     'locname': 'jungle',
     'location': [2,2],
     'setting': '''Around you vines hang low over the game trail, threatening to wrap you
-in their deadly embrace. By the trail, there are many sticks that litter the ground, and
-a berry bush on your right. Luckily, there is a clearing here that you should be able to
-Enter, to take shelter for the night. The game trail continues to the east, west, and
-north.''',
+in their deadly embrace. By the trail, there are many sticks that
+litter the ground, and a berry bush on your right. Luckily, there
+is a clearing here that you should be able to Enter, to take shelter
+for the night. The game trail continues to the east, west, and north.''',
     'tools': [axe],
     'items': [stick, vine, berry]
     }
@@ -69,14 +69,29 @@ houses that this was once a society, filled with life and purpose.
 However, it seems as though any life in this village has long since
 passed on. Now the village stands desolate, alone on this dusty 
 hillside. It suddenly hits you that perhaps you won't make it 
-home after all... As you look about the dusty village, you begin to
-notice that many of the homes around here are in ruins,
-worn away by the course of time. However, one house near the edge of
-the village seems mostly intact. Perhaps you could enter here and
-take refuge?''',
+home after all...
+As you look about the dusty village, you begin to notice that many
+of the homes around here are in ruins, worn away by the course of
+time. However, one house near the edge of the village seems mostly
+intact. Perhaps you could enter here and take refuge?''',
     'tools': [],
     'items': []
     }
+
+shack = {
+    'locname': 'shack',
+	'location': [2.5,1],
+	'setting': '''Despite this being the strongest building in the village, it is still
+barely holding together. Wind whistles through cracks in the
+walls, and the roof sags so much that the door refuses to stay
+closed. But then again, the floor is soft, and in here, you can
+relax.
+[you can rest here]''',
+    'tools': [],
+	'items': [rod, book]
+	}
+	
+
 
 waterfall = {
     'locname': 'waterfall',
@@ -87,9 +102,24 @@ surface of the water, it sends up white froth in all directions. To
 your west, there is a short dirt path, leading back to the mountain.
 To the south lies a grassy hillside, covered with wildflowers.
 There are [items]''',
-    'tools': [],
+    'tools': [rod],
     'items': []
     }
 
+hill = {
+    'locname': 'hill',
+	'location': [3,2],
+	'setting': 'to be completed',
+	'tools': [],
+	'items': [flower]
+	}
 
-roomslist = [beach, rocks, jungle, clearing, mountain, village, waterfall]
+cliff = {
+    'locname': 'cliff',
+	'location': [1,3],
+	'setting': 'to be completed',
+	'tools': [],
+	'items': []
+	}
+
+roomslist = [beach, rocks, jungle, clearing, mountain, village, shack, waterfall, hill, cliff]

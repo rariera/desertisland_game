@@ -16,10 +16,6 @@ def entryget(Event = None):
 	entry.delete(0,'end')
 	print("inputsssss")
 	print(userinput)
-	if userinput == 'yay':
-		write(text, 'Yeah, that\'s it!')
-	elif userinput == '':
-		write(text, 'No, you need to type something in!')
 
 global turn_no
 turn_no = 0

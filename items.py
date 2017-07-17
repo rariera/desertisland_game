@@ -99,6 +99,50 @@ the kind known as 'sandstone'....''',
 	'health': 0,
 	'inv': 0
 	}
+book = {
+    'name': 'book',
+	'desc': '''Tattered and beaten, this book seems to be ancient
+beyond repair. This book may have had writing on it some point, but
+the words have long since faded to become illegible.''',
+    'getable': True,
+	'edible': False,
+	'usable': False,
+	'health': 0,
+	'inv': 0
+	}
+string = {
+    'name': 'string',
+	'desc': 'A length of string, made from the flax flower.',
+	'getable': False,
+	'edible': False,
+	'usable': False,
+	'health': 'N/A',
+	'inv': 0
+	}
+
+bone = {
+    'name': 'bone',
+	'desc': 'An old bone. But then, everything has some use.',
+	'getable': True,
+	'edible': False,
+	'usable': False,
+	'health': 'N/A',
+	'inv': 0
+	}
+#This is a list of usable items:
+flower = {
+    'name': 'flower',
+	'desc': '''Although it might look shabby, this particular flower (flax flower)
+can be used to make string, which is used in multiple different tools
+(see help).''',
+    'getable': True,
+	'edible': False,
+	'usable': True,
+	'health': 'N/A',
+	'string': 'You use the flower to make string(1)',
+	'getitem': string,
+	'inv': 0
+	}
 
 #This is the results of tool uses...
 wood = {
@@ -110,6 +154,16 @@ wood = {
     'health': 0,
     'inv': 0
     }
+	
+fish = {
+    'name': 'fish',
+	'desc': 'A fresh fish. You\'ll need to cook it before eating it.',
+	'getable': False,
+	'edible': True,
+	'usable': False,
+	'health': 7,
+	'inv': 0
+	}
 
 #This is the info about the tools...
 axe = {
@@ -123,9 +177,21 @@ axe = {
     'string': '''You use the axe. The sapling falls to the ground, another defeated
 foe >:). You got 1 wood.''',
     'getitem': wood,
-    'settings': [5],
     'inv': 0
     }
+rod = {
+    'name': "rod",
+	'desc': 'An old fishing rod. It seems to be holding up ok.',
+	'getable': False,
+	'edible': False,
+	'usable': True,
+	'health': 0,
+	'ingredients': [stick, string, bone],
+	'string': '''You cast the fishing rod into the water. but will it yield a fish?''',
+	'getitem': fish,
+	'inv': 0
+	}
+
 
 
 
