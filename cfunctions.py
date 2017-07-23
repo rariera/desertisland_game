@@ -5,6 +5,7 @@ from classes import Output
 import initalisation
 import tkintermaker
 from gfunctions import chooseroom, get, invcheck
+import random
 
 write = Output.write
 noreplace_write = Output.noreplace_write
@@ -98,23 +99,37 @@ disdain.''')
     if cmd.item == 'seagull' and character.room == beach:
         write(tkintermaker.text, 'You try to grab the seagull... but it poops on your head.')
         #continue
-    if item in character.room['items'] and item['getable']and len(character.inventory) < 10:
+    if item in character.room['items'] and item['getable'] and len(character.inventory) < 10:
         write(tkintermaker.text, 'You picked up the ' + cmd.item)
         character.room['items'].remove(item)
         get(item, character)
     elif len(character.inventory) == 10:
         write(tkintermaker.text, 'Sorry, your inventory is full. You cannot carry more than 10 items.')
     elif item not in character.room['items']:
+        print(character.room['items'])
         write(tkintermaker.text, 'get... what? That ain\'t even in this place!')
     elif not item['getable']:
         write(tkintermaker.text, 'You can\'t pick that up!')
 
 
-def use_command(character):
+def use_command(character, item, toolslist):
     if item in toolslist and character.inventory:
-        if item in character.room['tools']:
-            get(item['getitem'])
+        if item in character.room['tools'] or item == flower:
+            item['usenumber'] = item['usenumber'] - 1
+            if item['usenumber'] < 1:
+                item['inv'] = item['inv'] - 1
+                invcheck(character, item)
+            if item == rod:
+                if random.randint(0,2) != 1:
+                    get(item['getitem'], character)
+                    noreplace_write(tkintermaker.text, 'Success! You caught a fish!')
+                else:
+                    noreplace_write(tkintermaker.text, 'You didn\'t catch a fish. Better luck next time!')
+            else:
+                get(item['getitem'], character)
             write(tkintermaker.text, item['string'])
+        else:
+            write(tkintermaker.text, 'You can\'t use that in this room.')
     elif item in toolslist:
         write(tkintermaker.text, 'You don\'t have one of those!')
     elif item in character.inventory:
@@ -142,7 +157,7 @@ def eat_command(cmd, character, item):
                     write(tkintermaker.text, 'It seems the berry was poisoned! You lost 10 health points!')
                     berry['health'] = -10
             item['inv'] = item['inv'] - 1
-            invcheck(character)
+            invcheck(character, item)
             character.health = character.health + item['health']
             if character.health > 20:
                 character.health = 20
@@ -221,7 +236,7 @@ def enter_command(character):
         write(tkintermaker.text, 'You enter the ' + character.room['locname'])
 
 def exit_command(character):
-    if character.room in [clearing]:
+    if character.room in [clearing, house]:
         write(tkintermaker.text, 'You exit the ' + character.room['locname'])
         character.loc[0] = character.loc[0] - 0.5
         chooseroom(character)
@@ -237,24 +252,43 @@ def rest_command(character):
         write(tkintermaker.text, '''Dude, what kind of survivalist sleeps in a potentially hostile 
 location???''')
 
-def teleport_command(character):
+def teleport_command(character, cmd):
     for i in roomslist:
         if i['locname'] == cmd.item:
             write(tkintermaker.text, 'Success! You have teleported to the ' + i['locname'])
             character.loc = i['location']
             chooseroom(character)
 
-    
-    
-def _get_command(character, item):
-    if item in itemslist:
+def make_command(item, character, makelist):
+    if item in makelist:
+        print(str(item['ingredients']))
+        print(str(character.inventory))
+        for i in item['ingredients']:
+            if i['inv'] > 0:
+                check = True
+            else:
+                write(tkintermaker.text, 'You don\'t have all the ingredients')
+                check = False
+                continue
+        if check == True:
+            for i in item['ingredients']:
+                i['inv'] = i['inv'] - 1
+            get(item, character)
+            write(tkintermaker.text, 'You made an ' + item['name'])
+        invcheck(character, item)
+
+
+
+def cget_command(character, item, collection):
+    if item in collection:
         if len(character.inventory) > 10:
             write(tkintermaker.text, '''Caution! Your inventory is less than 10! In order to \'get\' things,
 you will need to keep your items under 10!''')
         get(item, character)
+        write(tkintermaker.text, 'Tada!! The ' + item['name'] + ' magically appeared in your inventory!!!')
     else:
         write(tkintermaker.text, 'not real, dude.')
-        #continue
+        
 
 
 def _die_command():
@@ -268,7 +302,7 @@ def _five_command(character):
 def error_command():
     write(tkintermaker.text, '''I\'m sorry, but that is not a valid command. If you require assistance,
 please consult the MHS by typing help''')
-    #continue
+
 
 
 

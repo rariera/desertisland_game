@@ -3,18 +3,19 @@ import rooms
 from items import *
 import gfunctions
 import cfunctions
-import health
 from tkinter import *
 from tkintermaker import *
 from gfunctions import parsecommand
 
-itemslist = [coconut, rope, seagull, rock, starfish, shellfish, stick, vine, berry, wood, axe]
+itemslist = [coconut, rope, seagull, rock, starfish, shellfish, stick, vine, berry, book, string, starflower, bone, flower, fish, wood, axe, rod]
+toolslist = [axe, rod, flower]
+makelist = [axe, rod]
+
 
 def entryget(Event = None):
 	global userinput
 	userinput = entry.get()
 	entry.delete(0,'end')
-	print("inputsssss")
 	print(userinput)
 
 global turn_no
@@ -27,7 +28,7 @@ def loop(self):
     collection = itemslist
     item = gfunctions.finditem(cmd.item, collection)
 
-    check_command.check_command(cmd, item)
+    check_command.check_command(cmd, item, collection, toolslist, makelist)
     check_command.chealth_check(turn_no)
     check_command.chealth_warning()
     check_command.cstarvation_check()

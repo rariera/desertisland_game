@@ -1,7 +1,7 @@
 from items import *
 
 #This is the info about the rooms...
-beach = {
+beach1 = {
     'locname': 'beach',
     'location': [1,2],
     'setting': """Around you are small yellow particles littering the beach. Oh wait,
@@ -10,12 +10,13 @@ front of you is a small winding trail, leading into the jungle.
 To your left is more beach. And behind you? Behind you there is
 the endless ocean, the waves lapping at the shore, so reminisent
 of the storm that caused you to wash up on this desolate
-beach. To your left, a coconut tree sags""",
+beach. To your left, a coconut tree sags, offering you it's
+fruit. There is also a piece of rope here.""",
     'tools': [],
-    'items': [coconut, rope, seagull]
+    'items': [coconut1, coconut2, coconut3, rope, seagull]
     }
 
-rocks = {
+rocks1 = {
     'locname': 'rocks',
     'location': [1,1],
     'setting': '''Around you are many rocks: misshappen lumps of granite that long ago
@@ -26,7 +27,7 @@ see a tiny trout!''',
     'items': [rock, starfish, shellfish]
     }
 
-jungle = {
+jungle1 = {
     'locname': 'jungle',
     'location': [2,2],
     'setting': '''Around you vines hang low over the game trail, threatening to wrap you
@@ -38,7 +39,7 @@ for the night. The game trail continues to the east, west, and north.''',
     'items': [stick, vine, berry]
     }
 
-clearing = {
+clearing1 = {
     'locname': 'clearing',
     'location': [2.5,2],
     'setting': '''A soft clearing is spread out before you. The various trees around you
@@ -49,8 +50,8 @@ This looks like a good place to make camp.''',
     'items': []
     }
 
-mountain = {
-    'locname': 'mountain',
+mountains1 = {
+    'locname': 'mountains',
     'location': [3,2],
     'setting': '''You find yourself at the foot of an impassable mountain. Around you,
 rocks litter the ground, threatening to trip you at every turn. North
@@ -60,7 +61,7 @@ dirt path leads to a waterfall, overflowing into a mountain spring.''',
     'items': [rock]
     }
 
-village = {
+village1 = {
     'locname': 'village',
     'location': [2,1],
     'setting': '''Around you stands the ruins of an ancient village. The ground is dusty
@@ -78,8 +79,8 @@ intact. Perhaps you could enter here and take refuge?''',
     'items': []
     }
 
-shack = {
-    'locname': 'shack',
+house1 = {
+    'locname': 'house',
 	'location': [2.5,1],
 	'setting': '''Despite this being the strongest building in the village, it is still
 barely holding together. Wind whistles through cracks in the
@@ -93,7 +94,7 @@ relax.
 	
 
 
-waterfall = {
+waterfall1 = {
     'locname': 'waterfall',
     'location': [3,3],
     'setting': '''Before you there is a waterfall, filled with crystal clear water
@@ -106,20 +107,30 @@ There are [items]''',
     'items': []
     }
 
-hill = {
+hill1 = {
     'locname': 'hill',
-	'location': [3,2],
-	'setting': 'to be completed',
+	'location': [2,3],
+	'setting': '''You stand on a grassy hillside, surrounded by flowers. The wind
+whistles through the grass, causing it to roll in waves around you.
+to the south of you lies a path uphill leading to a cliff, to the 
+north of you lies the waterfall''',
 	'tools': [],
 	'items': [flower]
 	}
 
-cliff = {
+cliff1 = {
     'locname': 'cliff',
 	'location': [1,3],
-	'setting': 'to be completed',
+	'setting': '''You stand on the edge of a cliff, a rocky precipace leading downward
+onto the unforgiving rocks below. Looking to your right, far below
+you lies the beach where you washed up. You feel amused as you
+realise there is still a life sized intentation in the sand.
+
+Just before the edge of the cliff lies a silver flower, glistening
+in the sun. You can tell there is something very special about this
+flower.''',
 	'tools': [],
-	'items': []
+	'items': [starflower]
 	}
 
-roomslist = [beach, rocks, jungle, clearing, mountain, village, shack, waterfall, hill, cliff]
+roomslist = [beach1, rocks1, jungle1, clearing1, mountains1, village1, house1, waterfall1, hill1, cliff1]

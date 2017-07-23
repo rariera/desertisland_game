@@ -129,6 +129,16 @@ bone = {
 	'health': 'N/A',
 	'inv': 0
 	}
+starflower = {
+    'name': 'starflower',
+	'desc': 'The mythical starflower. Legend says that _____...',
+	'getable': True,
+	'edible': False,
+	'usable': False,
+	'health': 'N/A',
+	'inv': 0
+	}
+
 #This is a list of usable items:
 flower = {
     'name': 'flower',
@@ -141,6 +151,7 @@ can be used to make string, which is used in multiple different tools
 	'health': 'N/A',
 	'string': 'You use the flower to make string(1)',
 	'getitem': string,
+	'usenumber': 1,
 	'inv': 0
 	}
 
@@ -154,7 +165,7 @@ wood = {
     'health': 0,
     'inv': 0
     }
-	
+
 fish = {
     'name': 'fish',
 	'desc': 'A fresh fish. You\'ll need to cook it before eating it.',
@@ -177,6 +188,7 @@ axe = {
     'string': '''You use the axe. The sapling falls to the ground, another defeated
 foe >:). You got 1 wood.''',
     'getitem': wood,
+    'usenumber': 4,
     'inv': 0
     }
 rod = {
@@ -189,6 +201,7 @@ rod = {
 	'ingredients': [stick, string, bone],
 	'string': '''You cast the fishing rod into the water. but will it yield a fish?''',
 	'getitem': fish,
+	'usenumber': 6,
 	'inv': 0
 	}
 

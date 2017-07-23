@@ -14,9 +14,9 @@ def animation():
         return
     imagecanvas = canvas.create_image(0, 0, anchor = NW, image = _frames[animation.index])
     animation.index = animation.index + 1
-    if animation.index > 3:
+    if animation.index > 10:
         animation.index = 0
-    _root.after(300, animation)
+    _root.after(200, animation)
 
 def showimg():
     _root.photo = _photo
@@ -33,10 +33,10 @@ def showoimg():
 cont = Button(text = 'Continue?', command = showimg)
 canvas = Canvas(width = 533, height = 535)
 text = ScrolledText.ScrolledText(width = 70, height = 15)
-_frames = [ PhotoImage(file='guy_horse.gif', format = 'gif -index %i' % i) for i in range(0,4) ]
-_photo = ImageTk.PhotoImage(file = 'beginning_animation.gif')
+_frames = [ PhotoImage(file='beginning.gif', format = 'gif -index %i' % i) for i in range(0,11) ]
+_photo = ImageTk.PhotoImage(file = 'desert.png')
 
-showimg()
+showoimg()
 
 def tkintermake():
     welcome = Label(text = '''Welcome to the desert island game!\nType something in the entry\n\nbox to begin!''', bg = 'blue4', fg = 'white')

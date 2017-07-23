@@ -6,7 +6,7 @@ character = Character(loc = [1,2], health = 20, inventory = [])
 
 
 
-def check_command(cmd, item):
+def check_command(cmd, item, collection, toolslist, makelist):
 	if cmd.verb in ['help', 'h']:
 		help_command()
 	elif cmd.verb in ['look', 'l']:
@@ -16,7 +16,7 @@ def check_command(cmd, item):
 	elif cmd.verb in ['get']:
 		get_command(cmd, character, item)
 	elif cmd.verb in ['use', 'u']:
-		use_command(character)
+		use_command(character, item, toolslist)
 	elif cmd.verb in ['inventory', 'i']:
 		inventory_command(character)
 	elif cmd.verb in ['eat']:
@@ -40,9 +40,11 @@ def check_command(cmd, item):
 	elif cmd.verb in ['rest', 'r']:
 		rest_command(character)
 	elif cmd.verb == '_teleport':
-		teleport_command(character)
+		teleport_command(character, cmd)
+	elif cmd.verb == 'make':
+		make_command(item, character, makelist)
 	elif cmd.verb == '_get':
-		_get_command(character, item)
+		cget_command(character, item, collection)
 	elif cmd.verb == '_die':
 		_die_command()
 	elif cmd.verb == '_five':

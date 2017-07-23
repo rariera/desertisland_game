@@ -41,7 +41,17 @@ def chooseroom(character):
     elif character.loc == [2.5,2]:
         character.room = clearing
     elif character.loc == [3,2]:
-        character.room = mountain
+        character.room = mountains
+    elif character.loc == [2,1]:
+        character.room = village
+    elif character.loc == [2.5,1]:
+        character.room = house
+    elif character.loc == [3,3]:
+        character.room = waterfall
+    elif character.loc == [2,3]:
+        character.room = hill
+    elif character.loc == [1,3]:
+        character.room = cliff
     else:
         print('I can\'t choose a room!!!')
 
@@ -57,7 +67,7 @@ def get(item, character):
     else:
         item['inv'] = item['inv'] + 1
 
-def invcheck(character):
+def invcheck(character, item):
     for item in character.inventory:
         if item['inv'] < 1:
             character.inventory.remove(item)

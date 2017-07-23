@@ -7,7 +7,7 @@ from loop import entry, loop
 
 entry.bind('<Return>', loop)
 
-toolslist = [axe]
+
 
 #Calling initialisation...
 it = initialisation()
