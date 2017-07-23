@@ -1,4 +1,4 @@
-
+import copy
 
 #This will be the info about all the objects in the game.
 
@@ -10,7 +10,11 @@ coconut = {
     'usable': False,
     'health': 5,
     'inv': 0
-        }
+    }
+coconut1 = copy.copy(coconut)     
+coconut2 = copy.copy(coconut)
+coconut3 = copy.copy(coconut)
+
 rope = {
     'name': 'rope',
     'desc': 'Here is a wet piece of rope. It must have washed up from your wreck.',
@@ -68,6 +72,8 @@ could have been, and what it may yet become.''',
     'health': 0,
     'inv': 0
     }
+stick1 = copy.copy(stick)
+stick2 = copy.copy(stick)
 vine = {
     'name': 'vine',
     'desc': '''You pull on a vine. It comes off in your hand. Easy to break, but may
@@ -88,6 +94,10 @@ what if it kills you instead?""",
     'health': 0,
     'inv': 0
     }
+berry1 = copy.copy(berry)
+berry2 = copy.copy(berry)
+berry3 = copy.copy(berry)
+berry4 = copy.copy(berry)
 rock = {
 	'name' : 'rock',
 	'desc': '''Before you lies a rock. You weigh it in your hand.
@@ -154,6 +164,11 @@ can be used to make string, which is used in multiple different tools
 	'usenumber': 1,
 	'inv': 0
 	}
+flower1 = copy.copy(flower)
+flower2 = copy.copy(flower)
+flower3 = copy.copy(flower)
+flower4 = copy.copy(flower)
+flower5 = copy.copy(flower)
 
 #This is the results of tool uses...
 wood = {

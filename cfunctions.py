@@ -82,13 +82,13 @@ from place to place and gradual starvation(1 HP every 5 turns)''')
 
 
 def look_command(character):
-    write(tkintermaker.text, character.room['setting'])
+#   write(tkintermaker.text, character.room['setting'])
+    return character.room['setting']
     
-def items_command(character):
-    name_list = [i['name'] for i in character.room['items']]
-    write(tkintermaker.text, ', '.join(name_list))
-
-
+def items_command(room):
+    ''' Returns a string listing the items in a room '''
+    name_list = [i['name'] for i in room['items']]
+    return ', '.join(name_list)
 
 def get_command(cmd, character, item):
     if cmd.item == 'trout' and character.room == rocks:
@@ -96,7 +96,7 @@ def get_command(cmd, character, item):
 disdain.''')
         write(tkintermaker.text, 'If only you had something to catch it in...')
         #continue
-    if cmd.item == 'seagull' and character.room == beach:
+    if cmd.item == 'seagull' and character.room == beach1:
         write(tkintermaker.text, 'You try to grab the seagull... but it poops on your head.')
         #continue
     if item in character.room['items'] and item['getable'] and len(character.inventory) < 10:
@@ -175,7 +175,7 @@ def health_command(character):
     #continue
 
 def west_command(character):
-    if character.room in [waterfall, jungle, beach]:
+    if character.room in [waterfall1, jungle1, beach1]:
         write(tkintermaker.text, 'You walk to the west.')
         character.loc[1] = character.loc[1] - 1
         chooseroom(character)
@@ -186,7 +186,7 @@ def west_command(character):
         write(tkintermaker.text, 'You can\'t go that way!')
     
 def east_command(character):
-    if character.room in [mountains, village, rocks]:
+    if character.room in [mountains1, village1, rocks1]:
         write(tkintermaker.text, 'You walk to the east.')
         character.loc[1] = character.loc[1] + 1
         chooseroom(character)
@@ -197,7 +197,7 @@ def east_command(character):
           write(tkintermaker.text, 'You can\'t go that way!')
           
 def north_command(character):
-    if character.room in [beach, jungle, hill, cliff]:
+    if character.room in [beach1, jungle1, hill1, cliff1]:
         write(tkintermaker.text, 'You walk to the north.')
         character.loc[0] = character.loc[0] + 1
         chooseroom(character)
@@ -208,7 +208,7 @@ def north_command(character):
           write(tkintermaker.text, 'You can\'t go that way!')
           
 def south_command(character):
-    if character.room in [mountains, waterfall, jungle, hill]:
+    if character.room in [mountains1, waterfall1, jungle1, hill1]:
         write(tkintermaker.text, 'You walk to the south.')
         character.loc[0] = character.loc[0] - 1
         chooseroom(character)
@@ -230,19 +230,19 @@ def examine_command(item):
 
 
 def enter_command(character):
-    if character.room in [jungle, village]:
+    if character.room in [jungle1, village1]:
         character.loc[0] = character.loc[0] + 0.5
         chooseroom(character)
         write(tkintermaker.text, 'You enter the ' + character.room['locname'])
 
 def exit_command(character):
-    if character.room in [clearing, house]:
+    if character.room in [clearing1, house1]:
         write(tkintermaker.text, 'You exit the ' + character.room['locname'])
         character.loc[0] = character.loc[0] - 0.5
         chooseroom(character)
 
 def rest_command(character):
-    if character.room in [clearing, house]:
+    if character.room in [clearing1, house1]:
         write(tkintermaker.text, 'You lie down on the soft ground. You slowly drift into sleep...')
         noreplace_write(tkintermaker.text, 'Your HP increased by 10.')
         character.health = character.health + 10

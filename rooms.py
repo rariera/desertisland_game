@@ -36,7 +36,7 @@ litter the ground, and a berry bush on your right. Luckily, there
 is a clearing here that you should be able to Enter, to take shelter
 for the night. The game trail continues to the east, west, and north.''',
     'tools': [axe],
-    'items': [stick, vine, berry]
+    'items': [stick1, stick2, vine, berry1, berry2, berry3, berry4]
     }
 
 clearing1 = {
@@ -115,7 +115,7 @@ whistles through the grass, causing it to roll in waves around you.
 to the south of you lies a path uphill leading to a cliff, to the 
 north of you lies the waterfall''',
 	'tools': [],
-	'items': [flower]
+	'items': [flower1, flower2, flower3, flower4, flower5]
 	}
 
 cliff1 = {

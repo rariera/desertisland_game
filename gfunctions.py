@@ -33,37 +33,36 @@ def death():
 def chooseroom(character):
     """This is where it decides where the character is."""
     if character.loc == [1,2]:
-        character.room = beach
+        character.room = beach1
     elif character.loc == [1,1]:
-        character.room = rocks
+        character.room = rocks1
     elif character.loc == [2,2]:
-        character.room = jungle
+        character.room = jungle1
     elif character.loc == [2.5,2]:
-        character.room = clearing
+        character.room = clearing1
     elif character.loc == [3,2]:
-        character.room = mountains
+        character.room = mountains1
     elif character.loc == [2,1]:
-        character.room = village
+        character.room = village1
     elif character.loc == [2.5,1]:
-        character.room = house
+        character.room = house1
     elif character.loc == [3,3]:
-        character.room = waterfall
+        character.room = waterfall1
     elif character.loc == [2,3]:
-        character.room = hill
+        character.room = hill1
     elif character.loc == [1,3]:
-        character.room = cliff
+        character.room = cliff1
     else:
         print('I can\'t choose a room!!!')
 
 def roomreset():
-    beach['items'] = [coconut, rope, seagull]
-    rocks['items'] = [rock, starfish, shellfish]
+    beach1['items'] = [coconut1, coconut2, coconut3, rope, seagull]
+    rocks1['items'] = [rock, starfish, shellfish]
 
 
 def get(item, character):
     if item not in character.inventory:
         character.inventory.append(item)
-        item['inv'] = item['inv'] + 1
     else:
         item['inv'] = item['inv'] + 1
 
