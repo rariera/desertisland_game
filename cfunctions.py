@@ -1,10 +1,10 @@
 from rooms import *
 import items
-import gfunctions
 from classes import Output
 import initalisation
 import tkintermaker
-from gfunctions import chooseroom, get, invcheck
+from tkintermaker import bach
+from gfunctions import chooseroom, get, invcheck, death
 import random
 
 write = Output.write
@@ -139,7 +139,13 @@ def use_command(character, item, toolslist):
             
 def inventory_command(character):
     if len(character.inventory) > 0:
-        inventory_list = [i['name'] + '(' + str(i['inv']) + ')' for i in character.inventory]
+        namelist = {}
+        for i in character.inventory:
+            if i['name'] in namelist:
+                namelist[i['name']] = namelist[i['name']] + 1
+            else:
+                namelist[i['name']] = 1
+        inventory_list = [i + '(' + str(namelist[i]) + ')' for i in namelist]
         write(tkintermaker.text, ', '.join(inventory_list))
     else:
         write(tkintermaker.text, "You have nothing in your inventory... so sad.")
@@ -179,6 +185,7 @@ def west_command(character):
         write(tkintermaker.text, 'You walk to the west.')
         character.loc[1] = character.loc[1] - 1
         chooseroom(character)
+        bach(character)
         noreplace_write(tkintermaker.text, 'You are now at the ' + character.room['locname'])
         noreplace_write(tkintermaker.text, character.room['setting'])
         character.health = character.health - 2
@@ -190,6 +197,7 @@ def east_command(character):
         write(tkintermaker.text, 'You walk to the east.')
         character.loc[1] = character.loc[1] + 1
         chooseroom(character)
+        bach(character)
         noreplace_write(tkintermaker.text, 'You are now at the ' + character.room['locname'])
         noreplace_write(tkintermaker.text, character.room['setting'])
         character.health = character.health - 2
@@ -201,6 +209,7 @@ def north_command(character):
         write(tkintermaker.text, 'You walk to the north.')
         character.loc[0] = character.loc[0] + 1
         chooseroom(character)
+        bach(character)
         noreplace_write(tkintermaker.text, 'You are now at the ' + character.room['locname'])
         noreplace_write(tkintermaker.text, character.room['setting'])
         character.health = character.health - 2
@@ -212,6 +221,7 @@ def south_command(character):
         write(tkintermaker.text, 'You walk to the south.')
         character.loc[0] = character.loc[0] - 1
         chooseroom(character)
+        bach(character)
         noreplace_write(tkintermaker.text, 'You are now at the ' + character.room['locname'])
         noreplace_write(tkintermaker.text, character.room['setting'])
         character.health = character.health - 2
@@ -233,6 +243,7 @@ def enter_command(character):
     if character.room in [jungle1, village1]:
         character.loc[0] = character.loc[0] + 0.5
         chooseroom(character)
+        bach(character)
         write(tkintermaker.text, 'You enter the ' + character.room['locname'])
 
 def exit_command(character):
@@ -240,11 +251,13 @@ def exit_command(character):
         write(tkintermaker.text, 'You exit the ' + character.room['locname'])
         character.loc[0] = character.loc[0] - 0.5
         chooseroom(character)
+        bach(character)
 
 def rest_command(character):
     if character.room in [clearing1, house1]:
         write(tkintermaker.text, 'You lie down on the soft ground. You slowly drift into sleep...')
         noreplace_write(tkintermaker.text, 'Your HP increased by 10.')
+        noreplace_write(tkintermaker.text, 'You wake up. What do you do now?')
         character.health = character.health + 10
         if character.health > 20:
             character.health = 20

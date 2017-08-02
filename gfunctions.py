@@ -58,11 +58,19 @@ def chooseroom(character):
 def roomreset():
     beach1['items'] = [coconut1, coconut2, coconut3, rope, seagull]
     rocks1['items'] = [rock, starfish, shellfish]
-
+    jungle1['items'] = [stick1, stick2, vine, berry1, berry2, berry3, berry4]
+    clearing1['items'] = []
+    mountains1['items'] = [rock]
+    village1['items'] = []
+    house1['items'] = [rod, book]
+    waterfall1['items'] = []
+    hill1['items'] = [flower1, flower2, flower3, flower4, flower5]
+    cliff1['items'] = [starflower]
+    
 
 def get(item, character):
     if item not in character.inventory:
-        character.inventory.append(item)
+        character.inventory.append(item)    
     else:
         item['inv'] = item['inv'] + 1
 

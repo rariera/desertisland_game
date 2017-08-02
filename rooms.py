@@ -13,7 +13,8 @@ of the storm that caused you to wash up on this desolate
 beach. To your left, a coconut tree sags, offering you it's
 fruit. There is also a piece of rope here.""",
     'tools': [],
-    'items': [coconut1, coconut2, coconut3, rope, seagull]
+    'items': [coconut1, coconut2, coconut3, rope, seagull],
+    'background': 'desert.png'
     }
 
 rocks1 = {
@@ -24,7 +25,8 @@ fell here in a meteor shower. It seems many animals have made their
 home here: starfish, shellfish, in one of the rock pools, you even 
 see a tiny trout!''',
     'tools': [],
-    'items': [rock, starfish, shellfish]
+    'items': [rock, starfish, shellfish],
+    'background': 'desert.png'
     }
 
 jungle1 = {
@@ -36,7 +38,8 @@ litter the ground, and a berry bush on your right. Luckily, there
 is a clearing here that you should be able to Enter, to take shelter
 for the night. The game trail continues to the east, west, and north.''',
     'tools': [axe],
-    'items': [stick1, stick2, vine, berry1, berry2, berry3, berry4]
+    'items': [stick1, stick2, vine, berry1, berry2, berry3, berry4],
+    'background': 'jungle.png'
     }
 
 clearing1 = {
@@ -47,7 +50,8 @@ branch together like a low ceiling, sheltering you from the darkened
 skies. For the first time in a long while, you feel safe.
 This looks like a good place to make camp.''',
     'tools': [],
-    'items': []
+    'items': [],
+    'background': 'clearing.png'
     }
 
 mountains1 = {
@@ -58,7 +62,8 @@ rocks litter the ground, threatening to trip you at every turn. North
 of you, a cave leads downwards into darkness. To your ease, a short 
 dirt path leads to a waterfall, overflowing into a mountain spring.''',
     'tools': [],
-    'items': [rock]
+    'items': [rock],
+    'background': 'desert.png'
     }
 
 village1 = {
@@ -76,7 +81,8 @@ of the homes around here are in ruins, worn away by the course of
 time. However, one house near the edge of the village seems mostly
 intact. Perhaps you could enter here and take refuge?''',
     'tools': [],
-    'items': []
+    'items': [],
+    'background': 'desert.png'
     }
 
 house1 = {
@@ -89,7 +95,8 @@ closed. But then again, the floor is soft, and in here, you can
 relax.
 [you can rest here]''',
     'tools': [],
-	'items': [rod, book]
+	'items': [rod, book],
+    'background': 'desert.png'
 	}
 	
 
@@ -104,7 +111,8 @@ your west, there is a short dirt path, leading back to the mountain.
 To the south lies a grassy hillside, covered with wildflowers.
 There are [items]''',
     'tools': [rod],
-    'items': []
+    'items': [],
+    'background': 'desert.png'
     }
 
 hill1 = {
@@ -115,7 +123,8 @@ whistles through the grass, causing it to roll in waves around you.
 to the south of you lies a path uphill leading to a cliff, to the 
 north of you lies the waterfall''',
 	'tools': [],
-	'items': [flower1, flower2, flower3, flower4, flower5]
+	'items': [flower1, flower2, flower3, flower4, flower5],
+    'background': 'desert.png'
 	}
 
 cliff1 = {
@@ -130,7 +139,8 @@ Just before the edge of the cliff lies a silver flower, glistening
 in the sun. You can tell there is something very special about this
 flower.''',
 	'tools': [],
-	'items': [starflower]
+	'items': [starflower],
+    'background': 'desert.png'
 	}
 
 roomslist = [beach1, rocks1, jungle1, clearing1, mountains1, village1, house1, waterfall1, hill1, cliff1]
