@@ -92,15 +92,15 @@ def items_command(room):
     return ', '.join(name_list)
 
 def get_command(cmd, character, item):
-    if cmd.item == 'trout' and character.room == rocks:
+    if cmd.item == 'trout' and character.room == rocks1:
         write(tkintermaker.text, '''You try to grab the trout.... But it eludes you, staring back in 
 disdain.''')
         noreplace_write(tkintermaker.text, 'If only you had something to catch it in...')
         #continue
-    if cmd.item == 'seagull' and character.room == beach1:
+    elif cmd.item == 'seagull' and character.room == beach1:
         write(tkintermaker.text, 'You try to grab the seagull... but it poops on your head.')
         #continue
-    if item in character.room['items'] and item['getable'] and len(character.inventory) < 10:
+    elif item in character.room['items'] and item['getable'] and len(character.inventory) < 10:
         write(tkintermaker.text, 'You picked up the ' + cmd.item + '''. 
 You can examine it using 'ex' or 'examine'.''')
         if item['name'] == 'book':
@@ -121,17 +121,22 @@ def use_command(character, item, toolslist):
         if item in character.room['tools'] or item == flower:
             item['usenumber'] = item['usenumber'] - 1
             if item['usenumber'] < 1:
-                item['inv'] = item['inv'] - 1
-                invcheck(character, item)
-            if item == rod:
+                character.inventory.remove(item)
+                write(tkintermaker.text, 'Your rod broke. Guess you ran out of uses.')
+            elif item == rod:
+                print('the item is a rod!!!')
                 if random.randint(0,2) != 1:
+                    print('You got the fish!')
+                    write(tkintermaker.text, item['string'])
                     get(item['getitem'], character)
                     noreplace_write(tkintermaker.text, 'Success! You caught a fish!')
                 else:
+                    write(tkintermaker.text, item['string'])
+                    print('AHH! no fish!')
                     noreplace_write(tkintermaker.text, 'You didn\'t catch a fish. Better luck next time!')
             else:
                 get(item['getitem'], character)
-            write(tkintermaker.text, item['string'])
+                write(tkintermaker.text, item['string'])
         else:
             write(tkintermaker.text, 'You can\'t use that in this room.')
     elif item in toolslist:

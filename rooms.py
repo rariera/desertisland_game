@@ -24,7 +24,7 @@ rocks1 = {
 fell here in a meteor shower. It seems many animals have made their
 home here: starfish, shellfish, in one of the rock pools, you even 
 see a tiny trout!''',
-    'tools': [],
+    'tools': [rod],
     'items': [rock, starfish, shellfish],
     'background': 'desert.png'
     }
