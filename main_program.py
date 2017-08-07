@@ -1,6 +1,6 @@
 
 from tkintermaker import *
-from initalisation import *
+from initialisation import *
 from loop import entry, loop
 
 entry.bind('<Return>', loop)

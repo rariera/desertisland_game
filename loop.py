@@ -1,11 +1,9 @@
 import check_command
-import rooms
+
 from items import *
-import gfunctions
-import cfunctions
 from tkinter import *
 from tkintermaker import *
-from gfunctions import parsecommand
+from gfunctions import parsecommand, finditem
 
 itemslist = [coconut, rope, seagull, rock, starfish, shellfish, stick, vine, berry, book, string, starflower, bone, flower, fish, wood, axe, rod]
 toolslist = [axe, rod, flower]
@@ -22,11 +20,13 @@ global turn_no
 turn_no = 0
 
 
+
 def loop(self):
     entryget()
     cmd = parsecommand(userinput)
     collection = itemslist
-    item = gfunctions.finditem(cmd.item, collection)
+    item = finditem(cmd.item, collection)
+    
 
     check_command.check_command(cmd, item, collection, toolslist, makelist)
     check_command.chealth_check(turn_no)

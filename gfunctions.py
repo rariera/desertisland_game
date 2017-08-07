@@ -20,15 +20,7 @@ def finditem(itemname, container):
         if i['name'] == itemname:
             return i
 
-def death():
-    respawn = input('You died! Would you like to respawn? ')
-    if respawn == 'yes':
-        it = initialisation()
-        global character
-        character = it.character
-        turn_no = it.turn_no
-    else:
-        exit()
+
 
 def chooseroom(character):
     """This is where it decides where the character is."""
@@ -69,10 +61,7 @@ def roomreset():
     
 
 def get(item, character):
-    if item not in character.inventory:
-        character.inventory.append(item)    
-    else:
-        item['inv'] = item['inv'] + 1
+    character.inventory.append(item) 
 
 def invcheck(character, item):
     for item in character.inventory:

@@ -1,11 +1,12 @@
 from rooms import *
 import items
 from classes import Output
-import initalisation
+from initialisation import initialisation
 import tkintermaker
 from tkintermaker import bach
-from gfunctions import chooseroom, get, invcheck, death
+from gfunctions import chooseroom, get, invcheck, roomreset
 import random
+
 
 write = Output.write
 noreplace_write = Output.noreplace_write
@@ -45,7 +46,7 @@ yourself.
 Good luck, Traveller....
 (The voice fades away)""")
     
-    while True:
+    while True: 
         helpcommand = input('help> ')
         helpcmd = parsecommand(helpcommand)
 
@@ -94,13 +95,16 @@ def get_command(cmd, character, item):
     if cmd.item == 'trout' and character.room == rocks:
         write(tkintermaker.text, '''You try to grab the trout.... But it eludes you, staring back in 
 disdain.''')
-        write(tkintermaker.text, 'If only you had something to catch it in...')
+        noreplace_write(tkintermaker.text, 'If only you had something to catch it in...')
         #continue
     if cmd.item == 'seagull' and character.room == beach1:
         write(tkintermaker.text, 'You try to grab the seagull... but it poops on your head.')
         #continue
     if item in character.room['items'] and item['getable'] and len(character.inventory) < 10:
-        write(tkintermaker.text, 'You picked up the ' + cmd.item)
+        write(tkintermaker.text, 'You picked up the ' + cmd.item + '''. 
+You can examine it using 'ex' or 'examine'.''')
+        if item['name'] == 'book':
+            noreplace_write(tkintermaker.text, '''(You can read the book by typing 'ex')''')
         character.room['items'].remove(item)
         get(item, character)
     elif len(character.inventory) == 10:
@@ -113,7 +117,7 @@ disdain.''')
 
 
 def use_command(character, item, toolslist):
-    if item in toolslist and character.inventory:
+    if item in character.inventory and item['usable']:
         if item in character.room['tools'] or item == flower:
             item['usenumber'] = item['usenumber'] - 1
             if item['usenumber'] < 1:
@@ -138,13 +142,20 @@ def use_command(character, item, toolslist):
         write(tkintermaker.text, 'What??? You can\'t use something you don\'t have which is not a tool!!')
             
 def inventory_command(character):
+    quirk = False
     if len(character.inventory) > 0:
         namelist = {}
+        stringlist = []
         for i in character.inventory:
-            if i['name'] in namelist:
+            for s in stringlist:
+                if i['name'] == s:
+                    quirk = True 
+                    continue
+            if quirk == True:
                 namelist[i['name']] = namelist[i['name']] + 1
             else:
                 namelist[i['name']] = 1
+                stringlist.append(i['name'])
         inventory_list = [i + '(' + str(namelist[i]) + ')' for i in namelist]
         write(tkintermaker.text, ', '.join(inventory_list))
     else:
@@ -186,6 +197,7 @@ def west_command(character):
         character.loc[1] = character.loc[1] - 1
         chooseroom(character)
         bach(character)
+        roomreset()
         noreplace_write(tkintermaker.text, 'You are now at the ' + character.room['locname'])
         noreplace_write(tkintermaker.text, character.room['setting'])
         character.health = character.health - 2
@@ -198,6 +210,7 @@ def east_command(character):
         character.loc[1] = character.loc[1] + 1
         chooseroom(character)
         bach(character)
+        roomreset()
         noreplace_write(tkintermaker.text, 'You are now at the ' + character.room['locname'])
         noreplace_write(tkintermaker.text, character.room['setting'])
         character.health = character.health - 2
@@ -210,6 +223,7 @@ def north_command(character):
         character.loc[0] = character.loc[0] + 1
         chooseroom(character)
         bach(character)
+        roomreset()
         noreplace_write(tkintermaker.text, 'You are now at the ' + character.room['locname'])
         noreplace_write(tkintermaker.text, character.room['setting'])
         character.health = character.health - 2
@@ -222,6 +236,7 @@ def south_command(character):
         character.loc[0] = character.loc[0] - 1
         chooseroom(character)
         bach(character)
+        roomreset()
         noreplace_write(tkintermaker.text, 'You are now at the ' + character.room['locname'])
         noreplace_write(tkintermaker.text, character.room['setting'])
         character.health = character.health - 2
@@ -271,24 +286,32 @@ def teleport_command(character, cmd):
             write(tkintermaker.text, 'Success! You have teleported to the ' + i['locname'])
             character.loc = i['location']
             chooseroom(character)
+            bach(character)
 
 def make_command(item, character, makelist):
     if item in makelist:
-        print(str(item['ingredients']))
-        print(str(character.inventory))
         for i in item['ingredients']:
-            if i['inv'] > 0:
-                check = True
-            else:
-                write(tkintermaker.text, 'You don\'t have all the ingredients')
-                check = False
-                continue
+            recur = True
+            while recur:
+                for s in character.inventory:
+                    print('i[name]: ' + i['name'])
+                    print('s[name]: ' + s['name'])
+                    if i['name'] == s['name']:
+                        print('yay')
+                        check = True
+                        recur = False
+                    else:
+                        write(tkintermaker.text, 'You don\'t have all the ingredients')
+                        check = False
+                        continue
         if check == True:
             for i in item['ingredients']:
-                i['inv'] = i['inv'] - 1
-            get(item, character)
+                character.inventory.delete(i)
+                get(item, character)
             write(tkintermaker.text, 'You made an ' + item['name'])
         invcheck(character, item)
+    else:
+        write(tkintermaker.text, 'You can\'t make that...')
 
 
 
@@ -304,11 +327,19 @@ you will need to keep your items under 10!''')
         
 
 
-def _die_command():
-    death()
+def _die_command(character):
+    death(character)
 
 def _five_command(character):
     character.health = character.health - 5
+
+def drop_command(character, item):
+    write(tkintermaker.text, 'You drop the ' + item['name'] + '.')
+    print(character.inventory)
+    for i in character.inventory:
+        if i['name'] == item['name']:
+            character.inventory.remove(i)
+            continue
 
 
 
@@ -317,6 +348,10 @@ def error_command():
 please consult the MHS by typing help''')
 
 
+def death(character):
+    noreplace_write(tkintermaker.text, 'You died. Would you like to respawn?')
+    noreplace_write(tkintermaker.text, '*sigh*...')
+    character.alive = False
 
 
 def health_check(turn_no, character):
@@ -341,4 +376,5 @@ def starvation_check(character):
     if character.health <= 0:
         write(tkintermaker.text, '''You stumble a few paces. You slowly sway, and then fall into the dirt,
 utterly exhausted. You do not move again...''')
-        death()
+        death(character)
+

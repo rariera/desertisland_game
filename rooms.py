@@ -135,9 +135,9 @@ onto the unforgiving rocks below. Looking to your right, far below
 you lies the beach where you washed up. You feel amused as you
 realise there is still a life sized intentation in the sand.
 
-Just before the edge of the cliff lies a silver flower, glistening
-in the sun. You can tell there is something very special about this
-flower.''',
+Just before the edge of the cliff lies a silver flower, a starflower,
+glistening in the sun. You can tell there is something very special
+about this flower.''',
 	'tools': [],
 	'items': [starflower],
     'background': 'desert.png'

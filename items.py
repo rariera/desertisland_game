@@ -21,7 +21,7 @@ rope = {
     'getable': True,
     'edible': False,
     'usable': True,
-    'health': 0,
+    'health': 'N/A',
     'inv': 0
     }
 seagull = {
@@ -41,7 +41,7 @@ something...''',
     'getable': True,
     'edible': False,
     'usable': True,
-    'health': 0,
+    'health': 'N/A',
     'inv': 0
     }
 starfish = {
@@ -69,7 +69,7 @@ could have been, and what it may yet become.''',
     'getable': True,
     'edible': False,
     'usable': False,
-    'health': 0,
+    'health': 'N/A',
     'inv': 0
     }
 stick1 = copy.copy(stick)
@@ -81,7 +81,7 @@ still be useful...''',
     'getable': True,
     'edible': False,
     'usable': False,
-    'health': 0,
+    'health': 'N/A',
     'inv': 0
     }
 berry = {
@@ -91,7 +91,7 @@ what if it kills you instead?""",
     'getable': True,
     'edible': True,
     'usable': False,
-    'health': 0,
+    'health': 'N/A',
     'inv': 0
     }
 berry1 = copy.copy(berry)
@@ -106,18 +106,23 @@ the kind known as 'sandstone'....''',
 	'getable': True,
 	'edible': False,
 	'usable': False,
-	'health': 0,
+	'health': 'N/A',
 	'inv': 0
 	}
 book = {
     'name': 'book',
 	'desc': '''Tattered and beaten, this book seems to be ancient
 beyond repair. This book may have had writing on it some point, but
-the words have long since faded to become illegible.''',
+the words have long since faded to become illegible.
+No, Wait. It seems there is a little writing left. It's well worn
+and most of the message is washed away:
+
+'beach.......fire...............smoke'
+That's all you could read.''',
     'getable': True,
 	'edible': False,
 	'usable': False,
-	'health': 0,
+	'health': 'N/A',
 	'inv': 0
 	}
 string = {
@@ -177,7 +182,7 @@ wood = {
     'getable': False,
     'edible': False,
     'usable': False,
-    'health': 0,
+    'health': 'N/A',
     'inv': 0
     }
 
