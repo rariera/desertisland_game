@@ -56,6 +56,9 @@ def tkintermake():
     canvas.grid(rowspan = 3, columnspan = 3, row = 0, column = 2)
 	
     return _root
+
+def exit():
+    _root.destroy
 	
 if __name__ == "__main__":
     root = tkintermake()

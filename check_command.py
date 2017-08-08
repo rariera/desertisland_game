@@ -1,8 +1,8 @@
 from cfunctions import *
 from classes import *
 import tkintermaker
+from tkintermaker import exit
 from initialisation import initialisation
-import sys
 
 global character
 character = Character(loc = [1,2], health = 20, alive = True, inventory = []) 
@@ -51,9 +51,9 @@ def check_command(cmd, item, collection, toolslist, makelist):
         elif cmd.verb == '_get':
             cget_command(character, item, collection)
         elif cmd.verb == '_die':
-            _die_command(character)
+            die_command(character)
         elif cmd.verb == '_five':
-            _five_command(character)
+            five_command(character)
         elif cmd.verb == 'drop':
             drop_command(character, item)
         else:
@@ -62,11 +62,13 @@ def check_command(cmd, item, collection, toolslist, makelist):
         if verbiage:
             write(tkintermaker.text, verbiage)
     else:
+        print('DIE!!!!!')
         if cmd.verb in ['yes', 'y']:
-            character.alive = True
             initialisation()
+            character.alive = True
+            character.health = 20
         else:
-            sys.exit()
+            exit()
 
 
 

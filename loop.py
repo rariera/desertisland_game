@@ -10,7 +10,7 @@ toolslist = [axe, rod, flower]
 makelist = [axe, rod]
 
 
-def entryget(Event = None):
+def entryget(Event = None): 
 	global userinput
 	userinput = entry.get()
 	entry.delete(0,'end')
