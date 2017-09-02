@@ -471,6 +471,21 @@ You will lose HP through battles, moving from place to place, and gradual starva
             if item in character.room['tools']:
                 get(item['getitem'])
                 print(item['string'])
+            if item == 'starflower' and character.room == mountain:
+                print('''The goat slowly approaches you, eyeing the starflower in your hand. Being the kind person that
+                    you are, you offer the goat your flower and it quickly gobbles it up. The goat looks at you, 
+                    its eyes twinkling with years of wisdom, and speaks. 
+                    \'Where water doth lie 
+                    And crickets do buzz 
+                    There you will find a great secret 
+                    Every hunter has seeked it, but 
+                    Ruthless in his ways 
+                    Failed to learn of the entrance 
+                    All clues doth lead to it 
+                    Letters tumbling down 
+                    Leaving you with a message\' it says. 
+                    Enlightened by the goat\'s words, you continue on your journey...''')
+                continue
         elif item in toolslist:
             print('You don\'t have one of those!')
         elif item in character.inventory:
