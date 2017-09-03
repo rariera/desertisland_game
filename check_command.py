@@ -5,15 +5,15 @@ from tkintermaker import exit
 from initialisation import initialisation
 
 global character
-character = Character(loc = [1,2], health = 20, alive = True, inventory = []) 
+character = Character(loc = [1,2], health = 20, status = 'alive', inventory = []) 
 
 
 
 def check_command(cmd, item, collection, toolslist, makelist):
-    if character.alive == True:
+    if character.status == 'alive':
         verbiage = False
         if cmd.verb in ['help', 'h']:
-            help_command()
+            help_command(character)
         elif cmd.verb in ['look', 'l']:
             verbiage = look_command(character)
         elif cmd.verb == '_items':
@@ -61,11 +61,30 @@ def check_command(cmd, item, collection, toolslist, makelist):
             
         if verbiage:
             write(tkintermaker.text, verbiage)
+    elif character.status == 'help':
+        if cmd.verb == 'leave':
+            leave_command(character)
+        elif cmd.verb in ['topics']:
+            topics_command()
+        elif cmd.verb == 'game':
+            game_command()
+        elif cmd.verb == 'food':
+            food_command()
+        elif cmd.verb == 'crafting':
+            crafting_command()
+        elif cmd.verb in ['HP', 'hp', 'health']:
+            hpinfo_command()
+        else:
+            help_error()
+    elif character.status == 'end1':
+        if cmd.verb in ['yes', 'y']:
+            character.status = 'alive'
+            continue_command(character)
+        
     else:
-        print('DIE!!!!!')
         if cmd.verb in ['yes', 'y']:
             initialisation()
-            character.alive = True
+            character.status = 'alive'
             character.health = 20
         else:
             exit()

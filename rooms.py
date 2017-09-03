@@ -12,8 +12,9 @@ the endless ocean, the waves lapping at the shore, so reminisent
 of the storm that caused you to wash up on this desolate
 beach. To your left, a coconut tree sags, offering you it's
 fruit. There is also a piece of rope here.""",
-    'tools': [],
+    'tools': [flint],
     'items': [coconut1, coconut2, coconut3, rope, seagull],
+    'fire': False,
     'background': 'desert.png'
     }
 
@@ -24,7 +25,7 @@ rocks1 = {
 fell here in a meteor shower. It seems many animals have made their
 home here: starfish, shellfish, in one of the rock pools, you even 
 see a tiny trout!''',
-    'tools': [rod],
+    'tools': [rod, pickaxe],
     'items': [rock, starfish, shellfish],
     'background': 'desert.png'
     }
@@ -61,7 +62,7 @@ mountains1 = {
 rocks litter the ground, threatening to trip you at every turn. North
 of you, a cave leads downwards into darkness. To your ease, a short 
 dirt path leads to a waterfall, overflowing into a mountain spring.''',
-    'tools': [],
+    'tools': [pickaxe],
     'items': [rock],
     'background': 'desert.png'
     }
@@ -138,7 +139,7 @@ realise there is still a life sized intentation in the sand.
 Just before the edge of the cliff lies a silver flower, a starflower,
 glistening in the sun. You can tell there is something very special
 about this flower.''',
-	'tools': [],
+	'tools': [pickaxe],
 	'items': [starflower],
     'background': 'desert.png'
 	}

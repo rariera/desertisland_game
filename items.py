@@ -152,7 +152,7 @@ starflower = {
 	'usable': False,
 	'health': 'N/A',
 	'inv': 0
-	}
+    }
 
 #This is a list of usable items:
 flower = {
@@ -195,8 +195,28 @@ fish = {
 	'health': 7,
 	'inv': 0
 	}
+steel = {
+    'name': 'steel',
+    'desc': 'A lump of steel. You feel a sense of accomplishment run through you.',
+    'getable': True,
+    'edible': False,
+    'usable': False,
+    'health': 'N/A',
+    'inv': 0
+    }
 
 #This is the info about the tools...
+pickaxe = {
+    'name': 'pickaxe',
+    'desc': 'A pickaxe. Seems sturdy enough',
+    'getable': False,
+    'edible': False,
+    'usable': True,
+    'health': 'N/A',
+    'ingredients': [rock, stick, vine],
+    'getitem': steel,
+    'usenumber': 5,
+    'inv': 0}
 axe = {
     'name': 'axe',
     'desc': 'A makeshift axe. Looks like it can break apart at any time.',
@@ -224,7 +244,20 @@ rod = {
 	'usenumber': 6,
 	'inv': 0
 	}
-
+flint = {
+    'name': 'flint',
+    'desc': 'A flint and steel. Can be used to make a fire... Use it well.',
+    'getable': False,
+    'edible': False,
+    'usable': True,
+    'health': 'N/A',
+    'ingredients': [rock, steel],
+    'string': '''You use the flint and steel. Congratulations! You have created FIRE!!!''',
+    'getitem': False,
+    'usenumber': 10,
+    'inv': 0
+    }
+    
 
 
 
