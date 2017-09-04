@@ -21,7 +21,7 @@ rope = {
     'getable': True,
     'edible': False,
     'usable': True,
-    'health': 0,
+    'health': 'N/A',
     'inv': 0
     }
 seagull = {
@@ -41,7 +41,7 @@ something...''',
     'getable': True,
     'edible': False,
     'usable': True,
-    'health': 0,
+    'health': 'N/A',
     'inv': 0
     }
 starfish = {
@@ -69,7 +69,7 @@ could have been, and what it may yet become.''',
     'getable': True,
     'edible': False,
     'usable': False,
-    'health': 0,
+    'health': 'N/A',
     'inv': 0
     }
 stick1 = copy.copy(stick)
@@ -81,7 +81,7 @@ still be useful...''',
     'getable': True,
     'edible': False,
     'usable': False,
-    'health': 0,
+    'health': 'N/A',
     'inv': 0
     }
 berry = {
@@ -91,7 +91,7 @@ what if it kills you instead?""",
     'getable': True,
     'edible': True,
     'usable': False,
-    'health': 0,
+    'health': 'N/A',
     'inv': 0
     }
 berry1 = copy.copy(berry)
@@ -106,7 +106,7 @@ the kind known as 'sandstone'....''',
 	'getable': True,
 	'edible': False,
 	'usable': False,
-	'health': 0,
+	'health': 'N/A',
 	'inv': 0
 	}
 book = {
@@ -114,11 +114,15 @@ book = {
 	'desc': '''Tattered and beaten, this book seems to be ancient
 beyond repair. This book may have had writing on it some point, but
 the words have long since faded to become illegible.
-You can only make out four words, 'Beach... fire... make smoke.''',
+No, Wait. It seems there is a little writing left. It's well worn
+and most of the message is washed away:
+
+'beach.......fire...............smoke'
+That's all you could read.''',
     'getable': True,
 	'edible': False,
 	'usable': False,
-	'health': 0,
+	'health': 'N/A',
 	'inv': 0
 	}
 string = {
@@ -148,7 +152,7 @@ starflower = {
 	'usable': False,
 	'health': 'N/A',
 	'inv': 0
-	}
+}
 
 #This is a list of usable items:
 flower = {
@@ -178,7 +182,7 @@ wood = {
     'getable': False,
     'edible': False,
     'usable': False,
-    'health': 0,
+    'health': 'N/A',
     'inv': 0
     }
 
@@ -191,8 +195,28 @@ fish = {
 	'health': 7,
 	'inv': 0
 	}
+steel = {
+    'name': 'steel',
+    'desc': 'A lump of steel. You feel a sense of accomplishment run through you.',
+    'getable': True,
+    'edible': False,
+    'usable': False,
+    'health': 'N/A',
+    'inv': 0
+    }
 
 #This is the info about the tools...
+pickaxe = {
+    'name': 'pickaxe',
+    'desc': 'A pickaxe. Seems sturdy enough',
+    'getable': False,
+    'edible': False,
+    'usable': True,
+    'health': 'N/A',
+    'ingredients': [rock, stick, vine],
+    'getitem': steel,
+    'usenumber': 5,
+    'inv': 0}
 axe = {
     'name': 'axe',
     'desc': 'A makeshift axe. Looks like it can break apart at any time.',
@@ -220,7 +244,19 @@ rod = {
 	'usenumber': 6,
 	'inv': 0
 	}
-
+flint = {
+    'name': 'flint',
+    'desc': 'A flint and steel. Can be used to make a fire... Use it well.',
+    'getable': False,
+    'edible': False,
+    'usable': True,
+    'health': 'N/A',
+    'ingredients': [rock, steel],
+    'string': '''You use the flint and steel. Congratulations! You have created FIRE!!!''',
+    'getitem': False,
+    'usenumber': 10,
+    'inv': 0
+    }
 
 
 
