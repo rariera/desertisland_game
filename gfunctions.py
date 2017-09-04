@@ -21,7 +21,6 @@ def finditem(itemname, container):
             return i
 
 
-
 def chooseroom(character):
     """This is where it decides where the character is."""
     if character.loc == [1,2]:

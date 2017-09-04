@@ -146,13 +146,14 @@ bone = {
 	}
 starflower = {
     'name': 'starflower',
-	'desc': 'The mythical starflower. Legend says that _____...',
+	'desc': '''The mythical starflower. Legend says that opportunities will open for those who 
+    possess the starflower.''',
 	'getable': True,
 	'edible': False,
 	'usable': False,
 	'health': 'N/A',
 	'inv': 0
-    }
+}
 
 #This is a list of usable items:
 flower = {
@@ -257,7 +258,6 @@ flint = {
     'usenumber': 10,
     'inv': 0
     }
-    
 
 
 
