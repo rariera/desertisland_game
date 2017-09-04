@@ -146,7 +146,8 @@ bone = {
 	}
 starflower = {
     'name': 'starflower',
-	'desc': 'The mythical starflower. Legend says that _____...',
+	'desc': '''The mythical starflower. Legend says that opportunities will open for those who 
+    possess the starflower.''',
 	'getable': True,
 	'edible': False,
 	'usable': False,
