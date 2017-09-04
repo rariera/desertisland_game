@@ -2,11 +2,12 @@ from tkinter import *
 from gfunctions import chooseroom
 
 class Character(object):
-    def __init__(self, loc, health, status, inventory = []):
+    def __init__(self, loc, health, status, token, inventory = []):
         self.loc = loc
         self.inventory = inventory
         self.status = status
         self.health = health
+        self.token = token
         chooseroom(self)
 
 

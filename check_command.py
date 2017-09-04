@@ -5,7 +5,8 @@ from tkintermaker import exit
 from initialisation import initialisation
 
 global character
-character = Character(loc = [1,2], health = 20, status = 'alive', inventory = []) 
+character = Character(loc = [1,2], health = 20, status = 'alive', token = 0, inventory = []) 
+
 
 
 
@@ -58,7 +59,8 @@ def check_command(cmd, item, collection, toolslist, makelist):
             drop_command(character, item)
         else:
             error_command()
-            
+        character.token = character.token + 1
+        print(str(character.token))
         if verbiage:
             write(tkintermaker.text, verbiage)
     elif character.status == 'help':

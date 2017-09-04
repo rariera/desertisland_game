@@ -43,6 +43,8 @@ def chooseroom(character):
         character.room = hill1
     elif character.loc == [1,3]:
         character.room = cliff1
+    elif character.loc == [3.5, 3]:
+        character.room = cave1
     else:
         print('I can\'t choose a room!!!')
 

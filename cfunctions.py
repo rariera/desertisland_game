@@ -50,7 +50,7 @@ Good luck, Traveller....
 
 def leave_command(character):
     character.status = 'alive'
-    write(tkintermaker.text, 'You are now leaving the MHS. What do you do?')
+    write(text, 'You are now leaving the MHS. What do you do?')
 
 
 def topics_command():
@@ -96,7 +96,7 @@ from place to place and gradual starvation(1 HP every 5 turns)
 (to leave the MHS, type 'leave'.)''')
 
 def help_error():
-    write(tkintermaker.text, '''That is not something I know. pls type topics to find out what I can
+    write(text, '''That is not something I know. pls type topics to find out what I can
 tell you.
 
 (to leave the MHS, type 'leave'.)''')
@@ -159,13 +159,10 @@ def use_command(character, item, toolslist):
                             if woodremove == False:
                                 if i['name'] == 'wood':
                                     character.inventory.remove(i)
-                                    print('i lost my wood')
                                     woodremove = True
-                                print('NO DEATH!!')
                         if woodremove == True:
-                            print('string')
                             write(text, item['string'])
-                            end1_command()
+                            end1_command(character)
                             character.status = 'end1'
                 if wood == False:
                     write(text, 'You need wood to make a fire!')
@@ -238,61 +235,66 @@ def health_command(character):
 
 def west_command(character):
     if character.room in [waterfall1, jungle1, beach1]:
-        write(tkintermaker.text, 'You walk to the west.')
+        write(text, 'You walk to the west.')
         character.loc[1] = character.loc[1] - 1
         chooseroom(character)
         bach(character)
-        noreplace_write(tkintermaker.text, 'You are now at the ' + character.room['locname'])
-        noreplace_write(tkintermaker.text, character.room['setting'])
+        noreplace_write(text, 'You are now at the ' + character.room['locname'])
+        noreplace_write(text, character.room['setting'])
         character.health = character.health - 2
     else:
-        write(tkintermaker.text, 'You can\'t go that way!')
+        write(text, 'You can\'t go that way!')
     
 def east_command(character):
     if character.room in [mountains1, village1, rocks1]:
-        write(tkintermaker.text, 'You walk to the east.')
+        write(text, 'You walk to the east.')
         character.loc[1] = character.loc[1] + 1
         chooseroom(character)
         bach(character)
-        noreplace_write(tkintermaker.text, 'You are now at the ' + character.room['locname'])
-        noreplace_write(tkintermaker.text, character.room['setting'])
+        noreplace_write(text, 'You are now at the ' + character.room['locname'])
+        noreplace_write(text, character.room['setting'])
         character.health = character.health - 2
     else:
-          write(tkintermaker.text, 'You can\'t go that way!')
+          write(text, 'You can\'t go that way!')
           
 def north_command(character):
     if character.room in [beach1, jungle1, hill1, cliff1]:
-        write(tkintermaker.text, 'You walk to the north.')
+        write(text, 'You walk to the north.')
         character.loc[0] = character.loc[0] + 1
         chooseroom(character)
         bach(character)
-        noreplace_write(tkintermaker.text, 'You are now at the ' + character.room['locname'])
-        noreplace_write(tkintermaker.text, character.room['setting'])
+        noreplace_write(text, 'You are now at the ' + character.room['locname'])
+        noreplace_write(text, character.room['setting'])
         character.health = character.health - 2
     else:
-          write(tkintermaker.text, 'You can\'t go that way!')
+          write(text, 'You can\'t go that way!')
           
 def south_command(character):
     if character.room in [mountains1, waterfall1, jungle1, hill1]:
-        write(tkintermaker.text, 'You walk to the south.')
+        write(text, 'You walk to the south.')
         character.loc[0] = character.loc[0] - 1
         chooseroom(character)
         bach(character)
-        noreplace_write(tkintermaker.text, 'You are now at the ' + character.room['locname'])
-        noreplace_write(tkintermaker.text, character.room['setting'])
+        noreplace_write(text, 'You are now at the ' + character.room['locname'])
+        noreplace_write(text, character.room['setting'])
         character.health = character.health - 2
     else:
-          write(tkintermaker.text, 'You can\'t go that way!')    
+          write(text, 'You can\'t go that way!')    
 
 
 def examine_command(item):
-    write(tkintermaker.text, 'This is the info on the ' + item['name'])
-    noreplace_write(tkintermaker.text, 'Name: ' + item['name'])
-    noreplace_write(tkintermaker.text, 'Description: ' + item['desc'])
-    noreplace_write(tkintermaker.text, 'Getable: ' + str(item['getable']))
-    noreplace_write(tkintermaker.text, 'Edible: ' + str(item['edible']))
-    noreplace_write(tkintermaker.text, 'Usable: ' + str(item['usable']))
-    noreplace_write(tkintermaker.text, 'HP avaliable: ' + str(item['health']))
+    write(text, 'This is the info on the ' + item['name'])
+    noreplace_write(text, 'Name: ' + item['name'])
+    noreplace_write(text, 'Description: ' + item['desc'])
+    noreplace_write(text, 'Getable: ' + str(item['getable']))
+    noreplace_write(text, 'Edible: ' + str(item['edible']))
+    noreplace_write(text, 'Usable: ' + str(item['usable']))
+    if item['usable']:
+        namelist = [i['name'] for i in item['ingredients']]
+        noreplace_write(text, 'Ingredients:' + str(namelist))
+    else:
+        noreplace_write(text, 'Ingredients: N/A')
+    noreplace_write(text, 'HP avaliable: ' + str(item['health']))
 
 
 def enter_command(character):
@@ -300,11 +302,11 @@ def enter_command(character):
         character.loc[0] = character.loc[0] + 0.5
         chooseroom(character)
         bach(character)
-        write(tkintermaker.text, 'You enter the ' + character.room['locname'])
+        write(text, 'You enter the ' + character.room['locname'])
 
 def exit_command(character):
     if character.room in [clearing1, house1, cave1]:
-        write(tkintermaker.text, 'You exit the ' + character.room['locname'])
+        write(text, 'You exit the ' + character.room['locname'])
         character.loc[0] = character.loc[0] - 0.5
         chooseroom(character)
         bach(character)
@@ -392,7 +394,7 @@ please consult the MHS by typing help''')
 
 def read_command():
 	if character.room in [cave1]:
-		write(tkintermaker.text, 'Name: ' + item['name'])
+		write(text, 'Name: ' + item['name'])
 
 
 
@@ -400,7 +402,7 @@ def death(character):
     noreplace_write(text, 'You died. Would you like to respawn?')
     character.status = False
     
-def end1_command():
+def end1_command(character):
     noreplace_write(text, '''
 Your fire burns higher and higher. Huge columns of smoke begin to
 billow into the sky. You scan the horizon, hoping to see some kind of
@@ -411,7 +413,8 @@ feel a sense of triumph as you realise it's a red rescue helicopter.
 It lands, and invites you aboard.
 
 Congratulations! You successfully made your escape from the
-deserted island! But, there's another, secret ending you have yet
+deserted island in ''' + str(character.token + 1) + '''!
+But, there's another, secret ending you have yet
 to discover. Do you want to continue playing?''')
 
 def continue_command(character):

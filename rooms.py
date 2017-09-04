@@ -153,7 +153,7 @@ cave1 = {
 	cave. There seems to be a glowing book on a pedestal,
 	do you want to read it? (Use 'examine book')''',
 	'tools': [],
-	'items': [rock,bone,book],
+	'items': [rock, bone, book],
     'background': 'cave.png'
 }
 roomslist = [beach1, rocks1, jungle1, clearing1, mountains1, village1, house1, waterfall1, hill1, cliff1, cave1]
