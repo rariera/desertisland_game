@@ -8,7 +8,7 @@ import random
     #Fishing spot
     #tools e.g. axe, fishing rod
     #Mini-locations - cmd.verb == 'enter'
-    #
+    # HI I LLIIIVVEEE
     
 
 #Ask Dad:

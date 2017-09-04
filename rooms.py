@@ -24,7 +24,7 @@ rocks1 = {
     'setting': '''Around you are many rocks: misshappen lumps of granite that long ago
 fell here in a meteor shower. It seems many animals have made their
 home here: starfish, shellfish, in one of the rock pools, you even 
-see a tiny trout!''',
+see a cute lil' trout!''',
     'tools': [rod, pickaxe],
     'items': [rock, starfish, shellfish],
     'background': 'desert.png'
@@ -144,4 +144,14 @@ about this flower.''',
     'background': 'desert.png'
 	}
 
-roomslist = [beach1, rocks1, jungle1, clearing1, mountains1, village1, house1, waterfall1, hill1, cliff1]
+cave1 = {
+    'locname': 'cave',
+	'location': [3.5,3],
+	'setting': ''' You enter into a world of water and magical glowy things. What a good 
+	cave. There seems to be a glowing book on a pedestal,
+	do you want to read it? (Use 'examine book')''',
+	'tools': [],
+	'items': [rock,bone,book],
+    'background': 'cave.png'
+}
+roomslist = [beach1, rocks1, jungle1, clearing1, mountains1, village1, house1, waterfall1, hill1, cliff1, cave1]

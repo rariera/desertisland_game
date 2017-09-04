@@ -152,7 +152,7 @@ starflower = {
 	'usable': False,
 	'health': 'N/A',
 	'inv': 0
-    }
+}
 
 #This is a list of usable items:
 flower = {
@@ -257,7 +257,6 @@ flint = {
     'usenumber': 10,
     'inv': 0
     }
-    
 
 
 
