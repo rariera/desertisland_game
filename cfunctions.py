@@ -240,7 +240,7 @@ def examine_command(item):
 
 
 def enter_command(character):
-    if character.room in [jungle1, village1, waterfall]:
+    if character.room in [jungle1, village1, waterfall1]:
         character.loc[0] = character.loc[0] + 0.5
         chooseroom(character)
         bach(character)
