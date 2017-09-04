@@ -13,7 +13,8 @@ noreplace_write = Output.noreplace_write
 #Pass in character in the brackets!!!!!
 text = tkintermaker.text
 
-def help_command():
+def help_command(character):
+    character.status = 'help'
     write(text, """You hear a mysterious voice coming from the nearest place of
 concealment. It says: Hello! I am the Mysterious Help Station,
 or MHS for short. I will aid you in your quest. Here is a list of
@@ -36,6 +37,7 @@ examine/ex - In some settings, there are mini-locations that you can
 enter/exit - can be used to enter or exit a mini-location inside a
 room, as indicated by description
 rest - used to restore 10 HP - can only be done inside safe location
+drop ____ - used to drop an item in your inventory
 
 If you need help on a specific topic, type 'topics' in the help 
 prompt, and I will list the topics I can assist you on. If you wish
@@ -45,42 +47,59 @@ Please note, some commands are secret, and must be discovered for
 yourself.
 Good luck, Traveller....
 (The voice fades away)""")
-    
-    while True: 
-        helpcommand = input('help> ')
-        helpcmd = parsecommand(helpcommand)
 
-        if helpcmd.verb == 'leave':
-            break
-        
-        elif helpcmd.verb in ['topics']:
-            write(text, '''Topics I can tell you about are:
-                          - game
-                          - food
-                          - crafting
-                          - HP
-                          - 
-                    ''')
-        elif helpcmd.verb == 'game':
-            write(text, '''The desert island game is a game where you are trapped on a deserted
+def leave_command(character):
+    character.status = 'alive'
+    write(tkintermaker.text, 'You are now leaving the MHS. What do you do?')
+
+
+def topics_command():
+    write(text, '''Topics I can tell you about are:
+                  - game
+                  - food
+                  - crafting
+                  - HP/health
+                  - 
+                  (to leave the MHS, type 'leave')
+            ''')
+            
+
+def game_command():
+    write(text, '''The desert island game is a game where you are trapped on a deserted
 island. The aim of the game is to survive, and eventually make your
-escape.''')
-        elif helpcmd.verb == 'food':
-            write(text, '''Food can be used in the game to restore HP. It can be stored in the
+escape.
+
+(to leave the MHS, type 'leave'.)''')
+
+def food_command():
+    write(text, '''Food can be used in the game to restore HP. It can be stored in the
 inventory until time of consumption, at which point it will be 
-removed from the inventory.''')
-        elif helpcmd.verb == 'crafting':
-            write(text, '''Crafting is where you combine multiple different items together into
+removed from the inventory.
+
+(to leave the MHS, type 'leave'.)''')
+
+def crafting_command():
+    write(text, '''Crafting is where you combine multiple different items together into
 a new item. This can be done using the 'make' command, written as 
 'make [item]', and if you have all the neccasary items for the item,
 it will be created and put into your inventory. The items used to 
-make it will then be erased.''')
-        elif helpcmd.verb in ['HP', 'hp', 'health']:
-            write(text, '''Health points, or HP, is a way of measuring a characters health. If
+make it will then be erased.
+
+(to leave the MHS, type 'leave'.)''')
+
+def hpinfo_command():
+    write(text, '''Health points, or HP, is a way of measuring a characters health. If
 your HP reaches 0, you will DIE!!!! In order to regain HP, you can
 eat food or rest in a safe place. You will lose HP through moving
-from place to place and gradual starvation(1 HP every 5 turns)''')
+from place to place and gradual starvation(1 HP every 5 turns)
 
+(to leave the MHS, type 'leave'.)''')
+
+def help_error():
+    write(tkintermaker.text, '''That is not something I know. pls type topics to find out what I can
+tell you.
+
+(to leave the MHS, type 'leave'.)''')
 
 def look_command(character):
 #   write(text, character.room['setting'])
@@ -119,11 +138,7 @@ You can examine it using 'ex' or 'examine'.''')
 def use_command(character, item, toolslist):
     if item in character.inventory and item['usable']:
         if item in character.room['tools'] or item == flower:
-            item['usenumber'] = item['usenumber'] - 1
-            if item['usenumber'] < 1:
-                character.inventory.remove(item)
-                write(text, 'Your rod broke. Guess you ran out of uses.')
-            elif item == rod:
+            if item == rod:
                 print('the item is a rod!!!')
                 if random.randint(0,2) != 1:
                     print('You got the fish!')
@@ -134,9 +149,34 @@ def use_command(character, item, toolslist):
                     write(text, item['string'])
                     print('AHH! no fish!')
                     noreplace_write(text, 'You didn\'t catch a fish. Better luck next time!')
+            elif item['name'] == 'flint':
+                wood = False
+                for i in character.inventory:
+                    if i['name'] == 'wood':
+                        wood = True
+                        woodremove = False
+                        for i in character.inventory:
+                            if woodremove == False:
+                                if i['name'] == 'wood':
+                                    character.inventory.remove(i)
+                                    print('i lost my wood')
+                                    woodremove = True
+                                print('NO DEATH!!')
+                        if woodremove == True:
+                            print('string')
+                            write(text, item['string'])
+                            end1_command()
+                            character.status = 'end1'
+                if wood == False:
+                    write(text, 'You need wood to make a fire!')
+                    pass
             else:
                 get(item['getitem'], character)
                 write(text, item['string'])
+            item['usenumber'] = item['usenumber'] - 1
+            if item['usenumber'] < 1:
+                character.inventory.remove(item)
+                noreplace_write(text, 'Your ' + item['name'] + ' broke. Guess you ran out of uses.')
         else:
             write(text, 'You can\'t use that in this room.')
     elif item in toolslist:
@@ -168,7 +208,7 @@ def inventory_command(character):
 
 def eat_command(cmd, character, item):
     if item == 'null':
-        write(text, 'What do you want to eat?')
+        write(text, 'What do you want to eat?') 
     if item and item['edible'] and item in character.inventory:
         if character.health < 20:
             write(text, 'You eat the ' + cmd.item)
@@ -198,77 +238,73 @@ def health_command(character):
 
 def west_command(character):
     if character.room in [waterfall1, jungle1, beach1]:
-        write(text, 'You walk to the west.')
+        write(tkintermaker.text, 'You walk to the west.')
         character.loc[1] = character.loc[1] - 1
         chooseroom(character)
         bach(character)
-        roomreset()
-        noreplace_write(text, 'You are now at the ' + character.room['locname'])
-        noreplace_write(text, character.room['setting'])
+        noreplace_write(tkintermaker.text, 'You are now at the ' + character.room['locname'])
+        noreplace_write(tkintermaker.text, character.room['setting'])
         character.health = character.health - 2
     else:
-        write(text, 'You can\'t go that way!')
+        write(tkintermaker.text, 'You can\'t go that way!')
     
 def east_command(character):
     if character.room in [mountains1, village1, rocks1]:
-        write(text, 'You walk to the east.')
+        write(tkintermaker.text, 'You walk to the east.')
         character.loc[1] = character.loc[1] + 1
         chooseroom(character)
         bach(character)
-        roomreset()
-        noreplace_write(text, 'You are now at the ' + character.room['locname'])
-        noreplace_write(text, character.room['setting'])
+        noreplace_write(tkintermaker.text, 'You are now at the ' + character.room['locname'])
+        noreplace_write(tkintermaker.text, character.room['setting'])
         character.health = character.health - 2
     else:
-          write(text, 'You can\'t go that way!')
+          write(tkintermaker.text, 'You can\'t go that way!')
           
 def north_command(character):
     if character.room in [beach1, jungle1, hill1, cliff1]:
-        write(text, 'You walk to the north.')
+        write(tkintermaker.text, 'You walk to the north.')
         character.loc[0] = character.loc[0] + 1
         chooseroom(character)
         bach(character)
-        roomreset()
-        noreplace_write(text, 'You are now at the ' + character.room['locname'])
-        noreplace_write(text, character.room['setting'])
+        noreplace_write(tkintermaker.text, 'You are now at the ' + character.room['locname'])
+        noreplace_write(tkintermaker.text, character.room['setting'])
         character.health = character.health - 2
     else:
-          write(text, 'You can\'t go that way!')
+          write(tkintermaker.text, 'You can\'t go that way!')
           
 def south_command(character):
     if character.room in [mountains1, waterfall1, jungle1, hill1]:
-        write(text, 'You walk to the south.')
+        write(tkintermaker.text, 'You walk to the south.')
         character.loc[0] = character.loc[0] - 1
         chooseroom(character)
         bach(character)
-        roomreset()
-        noreplace_write(text, 'You are now at the ' + character.room['locname'])
-        noreplace_write(text, character.room['setting'])
+        noreplace_write(tkintermaker.text, 'You are now at the ' + character.room['locname'])
+        noreplace_write(tkintermaker.text, character.room['setting'])
         character.health = character.health - 2
     else:
-          write(text, 'You can\'t go that way!')    
+          write(tkintermaker.text, 'You can\'t go that way!')    
 
 
 def examine_command(item):
-    write(text, 'This is the info on the ' + item['name'])
-    noreplace_write(text, 'Name: ' + item['name'])
-    noreplace_write(text, 'Description: ' + item['desc'])
-    noreplace_write(text, 'Getable: ' + str(item['getable']))
-    noreplace_write(text, 'Edible: ' + str(item['edible']))
-    noreplace_write(text, 'Usable: ' + str(item['usable']))
-    noreplace_write(text, 'HP avaliable: ' + str(item['health']))
+    write(tkintermaker.text, 'This is the info on the ' + item['name'])
+    noreplace_write(tkintermaker.text, 'Name: ' + item['name'])
+    noreplace_write(tkintermaker.text, 'Description: ' + item['desc'])
+    noreplace_write(tkintermaker.text, 'Getable: ' + str(item['getable']))
+    noreplace_write(tkintermaker.text, 'Edible: ' + str(item['edible']))
+    noreplace_write(tkintermaker.text, 'Usable: ' + str(item['usable']))
+    noreplace_write(tkintermaker.text, 'HP avaliable: ' + str(item['health']))
 
 
 def enter_command(character):
-    if character.room in [jungle1, village1]:
+    if character.room in [jungle1, village1, waterfall1]:
         character.loc[0] = character.loc[0] + 0.5
         chooseroom(character)
         bach(character)
-        write(text, 'You enter the ' + character.room['locname'])
+        write(tkintermaker.text, 'You enter the ' + character.room['locname'])
 
 def exit_command(character):
-    if character.room in [clearing1, house1]:
-        write(text, 'You exit the ' + character.room['locname'])
+    if character.room in [clearing1, house1, cave1]:
+        write(tkintermaker.text, 'You exit the ' + character.room['locname'])
         character.loc[0] = character.loc[0] - 0.5
         chooseroom(character)
         bach(character)
@@ -319,7 +355,6 @@ def make_command(item, character, makelist):
         write(text, 'You can\'t make that...')
 
 
-
 def cget_command(character, item, collection):
     if item in collection:
         if len(character.inventory) > 10:
@@ -350,14 +385,46 @@ def drop_command(character, item):
 
 
 
+
 def error_command():
     write(text, '''I\'m sorry, but that is not a valid command. If you require assistance,
 please consult the MHS by typing help''')
 
+def read_command():
+	if character.room in [cave1]:
+		write(tkintermaker.text, 'Name: ' + item['name'])
+
+
 
 def death(character):
     noreplace_write(text, 'You died. Would you like to respawn?')
-    character.alive = False
+    character.status = False
+    
+def end1_command():
+    noreplace_write(text, '''
+Your fire burns higher and higher. Huge columns of smoke begin to
+billow into the sky. You scan the horizon, hoping to see some kind of
+ship or aircraft, but to no avail.
+Just as you're about to give up, far on the horizon, you see a low
+cloud. No, it can't be a cloud, it's moving, moving this way. You 
+feel a sense of triumph as you realise it's a red rescue helicopter.
+It lands, and invites you aboard.
+
+Congratulations! You successfully made your escape from the
+deserted island! But, there's another, secret ending you have yet
+to discover. Do you want to continue playing?''')
+
+def continue_command(character):
+    write(text, '''Ok. Heres a secret clue that you might need to help things along.
+Be nice to goats. They're smarter than you think.
+
+Now, continue playing. I was never here....
+
+Oh, also, when you're done playing, you can just gather some more 
+wood and use the flint to call the helicopter again. See ya soon!
+''')
+    noreplace_write(text, character.room['setting'])
+    
 
 
 def health_check(turn_no, character):
@@ -383,4 +450,3 @@ def starvation_check(character):
         write(text, '''You stumble a few paces. You slowly sway, and then fall into the dirt,
 utterly exhausted. You do not move again...''')
         death(character)
-

@@ -5,9 +5,9 @@ from tkinter import *
 from tkintermaker import *
 from gfunctions import parsecommand, finditem
 
-itemslist = [coconut, rope, seagull, rock, starfish, shellfish, stick, vine, berry, book, string, starflower, bone, flower, fish, wood, axe, rod]
-toolslist = [axe, rod, flower]
-makelist = [axe, rod]
+itemslist = [coconut, rope, seagull, rock, starfish, shellfish, stick, vine, berry, book, string, starflower, bone, flower, fish, wood, axe, rod, steel, flint]
+toolslist = [axe, rod, flower, flint]
+makelist = [axe, rod, flint]
 
 
 def entryget(Event = None): 
