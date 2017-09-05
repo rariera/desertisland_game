@@ -15,7 +15,7 @@ fruit. There is also a piece of rope here.""",
     'tools': [flint],
     'items': [coconut1, coconut2, coconut3, rope, seagull],
     'fire': False,
-    'background': 'desert.png'
+    'background': 'beach.png'
     }
 
 rocks1 = {
@@ -27,7 +27,7 @@ home here: starfish, shellfish, in one of the rock pools, you even
 see a cute lil' trout!''',
     'tools': [rod, pickaxe],
     'items': [rock, starfish, shellfish],
-    'background': 'desert.png'
+    'background': 'rocks.png'
     }
 
 jungle1 = {

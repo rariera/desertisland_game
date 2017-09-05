@@ -16,14 +16,14 @@ def animation():
         return
     imagecanvas = canvas.create_image(0, 0, anchor = NW, image = _frames[animation.index])
     animation.index = animation.index + 1
-    if animation.index > 10:
-        animation.index = 0
+    if animation.index >= 29:
+        imagecanvas = canvas.create_image(0,0, anchor = NW, image = ImageTk.PhotoImage(file = 'beach.png'))
+        return
     _root.after(200, animation)
 
 
 
 def showimg():
-    
     imagecanvas = canvas.create_image(0,0, anchor = NW, image = _image)
     animation.index = -1
 
@@ -36,7 +36,7 @@ def showoimg():
 
 canvas = Canvas(width = 533, height = 535)
 text = ScrolledText.ScrolledText(width = 70, height = 15)
-_frames = [ PhotoImage(file='beginning.gif', format = 'gif -index %i' % i) for i in range(0,11) ]
+_frames = [ PhotoImage(file='beginning.gif', format = 'gif -index %i' % i) for i in range(0,31) ]
 _photo = ImageTk.PhotoImage(file = 'desert.png')
 
 showoimg()
