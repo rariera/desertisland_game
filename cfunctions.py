@@ -147,8 +147,23 @@ def use_command(character, item, toolslist):
                     noreplace_write(text, 'Success! You caught a fish!')
                 else:
                     write(text, item['string'])
-                    print('AHH! no fish!')
                     noreplace_write(text, 'You didn\'t catch a fish. Better luck next time!')
+            elif item == starflower:
+                write(text, '''The goat slowly approaches you, eyeing the starflower in your hand.
+Being the kind person that you are, you offer the goat your flower
+and it quickly gobbles it up. The goat looks at you, its eyes
+twinkling with years of wisdom, and speaks. 
+'Where water doth lie 
+And crickets do buzz 
+There you will find a great secret 
+Every hunter has seeked it, but 
+Ruthless in his ways 
+Failed to learn of the entrance 
+All clues doth lead to it 
+Letters tumbling down
+Leaving you with a message' it says. 
+
+Enlightened by the goat's words, you continue on your journey...''')
             elif item['name'] == 'flint':
                 wood = False
                 for i in character.inventory:
@@ -189,16 +204,12 @@ def inventory_command(character):
         namelist = {}
         stringlist = []
         for i in character.inventory:
-            for s in stringlist:
-                if i['name'] == s:
-                    quirk = True 
-                    continue
-            if quirk == True:
+            if i in stringlist:
                 namelist[i['name']] = namelist[i['name']] + 1
             else:
                 namelist[i['name']] = 1
-                stringlist.append(i['name'])
-        inventory_list = [i + '(' + str(namelist[i]) + ')' for i in namelist]
+                stringlist.append(i)
+        inventory_list = [n + '(' + str(namelist[n]) + ')' for n in namelist]
         write(text, ', '.join(inventory_list))
     else:
         write(text, "You have nothing in your inventory... so sad.")
@@ -215,8 +226,10 @@ def eat_command(cmd, character, item):
                 else:
                     write(text, 'It seems the berry was poisoned! You lost 10 health points!')
                     berry['health'] = -10
-            item['inv'] = item['inv'] - 1
-            invcheck(character, item)
+            for i in character.inventory:
+                if i['name'] == item['name']:
+                    character.inventory.remove(i)
+                    pass
             character.health = character.health + item['health']
             if character.health > 20:
                 character.health = 20
@@ -334,25 +347,16 @@ def teleport_command(character, cmd):
 def make_command(item, character, makelist):
     if item in makelist:
         for i in item['ingredients']:
-            recur = True
-            while recur:
-                for s in character.inventory:
-                    print('i[name]: ' + i['name'])
-                    print('s[name]: ' + s['name'])
-                    if i['name'] == s['name']:
-                        print('yay')
-                        check = True
-                        recur = False
-                    else:
-                        write(text, 'You don\'t have all the ingredients')
-                        check = False
-                        continue
+            if i in character.inventory:
+                check = True
+            else:
+                write(text, 'You don\'t have all the ingredients')
+                check = False
         if check == True:
             for i in item['ingredients']:
-                character.inventory.delete(i)
-                get(item, character)
-            write(text, 'You made an ' + item['name'])
-        invcheck(character, item)
+                character.inventory.remove(i)
+            get(item, character)
+            write(text, 'You made an ' + item['name'] + '. Check it out with \'ex\'')
     else:
         write(text, 'You can\'t make that...')
 

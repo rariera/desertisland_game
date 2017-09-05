@@ -150,7 +150,7 @@ starflower = {
     possess the starflower.''',
 	'getable': True,
 	'edible': False,
-	'usable': False,
+	'usable': True,
 	'health': 'N/A',
 	'inv': 0
 }

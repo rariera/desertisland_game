@@ -64,7 +64,7 @@ of you, a cave leads downwards into darkness. To your ease, a short
 dirt path leads to a waterfall, overflowing into a mountain spring.
 A little way ahead, you spot a mountain goat doing whatever mountain goats do. 
 It looks a bit hungry though...''',
-    'tools': [pickaxe],
+    'tools': [pickaxe, starflower],
     'items': [rock],
     'background': 'desert.png'
     }
