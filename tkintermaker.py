@@ -1,12 +1,13 @@
 from tkinter import *
 from PIL import ImageTk
 import tkinter.scrolledtext as ScrolledText
+import sys
 
 
 #import check_command
 #import health
 _root = Tk()
-_root.configure(bg = 'green')
+_root.configure(bg = 'blue4')
 _root.geometry('765x800')
 
 _bc = False
@@ -58,7 +59,8 @@ def tkintermake():
     return _root
 
 def exit():
-    _root.destroy
+    _root.destroy()
+    sys.exit()
 	
 if __name__ == "__main__":
     root = tkintermake()

@@ -24,7 +24,8 @@ rocks1 = {
     'setting': '''Around you are many rocks: misshappen lumps of granite that long ago
 fell here in a meteor shower. It seems many animals have made their
 home here: starfish, shellfish, in one of the rock pools, you even 
-see a cute lil' trout!''',
+see a cute lil' trout!
+[you can fish here]''',
     'tools': [rod, pickaxe],
     'items': [rock, starfish, shellfish],
     'background': 'rocks.png'
@@ -62,7 +63,8 @@ mountains1 = {
 rocks litter the ground, threatening to trip you at every turn. North
 of you, a cave leads downwards into darkness. To your ease, a short 
 dirt path leads to a waterfall, overflowing into a mountain spring.
-A little way ahead, you spot a mountain goat doing whatever mountain goats do. 
+A little way ahead, you spot a mountain goat doing whatever mountain 
+goats do. 
 It looks a bit hungry though...''',
     'tools': [pickaxe, starflower],
     'items': [rock],
@@ -112,7 +114,7 @@ rushing quickly into the mountain spring at your feet. As it hits the
 surface of the water, it sends up white froth in all directions. To
 your west, there is a short dirt path, leading back to the mountain.
 To the south lies a grassy hillside, covered with wildflowers.
-There are [items]''',
+[you can fish here.]''',
     'tools': [rod],
     'items': [],
     'background': 'desert.png'
@@ -124,7 +126,7 @@ hill1 = {
 	'setting': '''You stand on a grassy hillside, surrounded by flowers. The wind
 whistles through the grass, causing it to roll in waves around you.
 to the south of you lies a path uphill leading to a cliff, to the 
-north of you lies the waterfall''',
+north of you lies the waterfall.''',
 	'tools': [],
 	'items': [flower1, flower2, flower3, flower4, flower5],
     'background': 'desert.png'
@@ -149,9 +151,33 @@ about this flower.''',
 cave1 = {
     'locname': 'cave',
 	'location': [3.5,3],
-	'setting': ''' You enter into a world of water and magical glowy things. What a good 
-	cave. There seems to be a glowing book on a pedestal,
-	do you want to read it? (Use 'examine book')''',
+	'setting': '''You enter into a world of water and magical glowy things. What a good 
+cave! You walk further into the cave, leaving the waterfall behind
+you. Seeing a small hole in the rock, you bend down and crawl through
+Before you there is a large round room, illuminated by a faint blue
+light eminating from the many plants in the room.
+You walk towards one of them, a large glowing blue mushroom.
+'I wouldn't touch that if I were you.' A familiar voice says behind
+you.
+You whirl around, but there is no one there...?
+'Over here.' You turn back towards the mushroom. A strange man stands
+before you.
+'Who are you?' You ask, trying and failing to sound unafraid. Despite
+this, you hear your voice tremble.
+'My name is Matthew Henry Scott. You may know me as... the MHS.
+You need not be afraid, I am not going to harm you.
+
+I waited for you here, to find out if you are worthy, but now, weary
+traveller, I can bestow upon you the secrets of the island.
+These are known as the secret commands, which will give you ultimate
+power on the island.
+They can be accessed in the help menu (MHS) by typing the keyword
+'secret'
+Just to repeat, these can be accessed in help by typing 'secret'
+
+Now, follow me. I shall provide you safe passage...
+[press Enter]
+''',
 	'tools': [],
 	'items': [rock, bone, book],
     'background': 'cave.png'

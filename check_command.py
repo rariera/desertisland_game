@@ -57,10 +57,13 @@ def check_command(cmd, item, collection, toolslist, makelist):
             five_command(character)
         elif cmd.verb == 'drop':
             drop_command(character, item)
+        elif cmd.verb == '_end1':
+            cheat_ending1(character)
+        elif cmd.verb == '_end2':
+            cheat_ending2(character)
         else:
             error_command()
         character.token = character.token + 1
-        print(str(character.token))
         if verbiage:
             write(tkintermaker.text, verbiage)
     elif character.status == 'help':
@@ -76,13 +79,26 @@ def check_command(cmd, item, collection, toolslist, makelist):
             crafting_command()
         elif cmd.verb in ['HP', 'hp', 'health']:
             hpinfo_command()
+        elif cmd.verb == 'secret':
+            secret_command()
         else:
             help_error()
     elif character.status == 'end1':
         if cmd.verb in ['yes', 'y']:
             character.status = 'alive'
+            character.health = 20
             continue_command(character)
-        
+        else:
+            exit()
+    elif character.status == 'end2':
+        if cmd.verb in ['yes', 'y']:
+            continue2_command(character)
+            character.status = 'alive'
+            character.health = 20
+        elif cmd.verb in ['no', 'n']:
+            exit()
+        else:
+            end2_enter(character)
     else:
         if cmd.verb in ['yes', 'y']:
             initialisation()

@@ -95,6 +95,17 @@ from place to place and gradual starvation(1 HP every 5 turns)
 
 (to leave the MHS, type 'leave'.)''')
 
+def secret_command():
+    write(text, '''*sigh* here are the secret commands again:
+_get - used to instantly get any item in the game
+_teleport - used to instantly teleport to any location in the game
+_five - used to lose 5 health points (if you really want to...)
+_die - if you want to die...?
+_end1 - instantly takes you to the normal ending
+_end2 - instantly takes you to the secret cave ending
+
+(to leave the MHS, type 'leave'.)''')
+
 def help_error():
     write(text, '''That is not something I know. pls type topics to find out what I can
 tell you.
@@ -233,7 +244,7 @@ def eat_command(cmd, character, item):
             character.health = character.health + item['health']
             if character.health > 20:
                 character.health = 20
-            write(text, 'Your health level is now ' + str(character.health) + '/20')
+            noreplace_write(text, 'Your health level is now ' + str(character.health) + '/20')
         else:
             write(text, 'You aren\'t in need of energy just now')
             #continue
@@ -316,6 +327,8 @@ def enter_command(character):
         chooseroom(character)
         bach(character)
         write(text, 'You enter the ' + character.room['locname'])
+        if character.room == cave1:
+            character.status = 'end2'
 
 def exit_command(character):
     if character.room in [clearing1, house1, cave1]:
@@ -422,7 +435,7 @@ But, there's another, secret ending you have yet
 to discover. Do you want to continue playing?''')
 
 def continue_command(character):
-    write(text, '''Ok. Heres a secret clue that you might need to help things along.
+    write(text, '''Ok. Here's a secret clue that you might need to help things along.
 Be nice to goats. They're smarter than you think.
 
 Now, continue playing. I was never here....
@@ -432,6 +445,32 @@ wood and use the flint to call the helicopter again. See ya soon!
 ''')
     noreplace_write(text, character.room['setting'])
     
+def continue2_command(character):
+    write(text, '''Ok. I'll just drop you off at the waterfall. Hey, why don't
+you head over to the village? Maybe that'll help you out. Bye!''')
+    character.loc = [3,3]
+    chooseroom(character)
+    noreplace_write(text, character.room['setting'])
+
+def cheat_ending1(character):
+    end1_command(character)
+    character.status = 'end1'
+    
+def cheat_ending2(character):
+    character.loc = [3.5,3]
+    chooseroom(character)
+    write(text, character.room['setting'])
+    character.status = 'end2'
+    
+def end2_enter(character):
+    write(text, 'Congratulations! You successfully escaped the deserted island in ' + str(character.token + 1) + ''' 
+Nice job on finding the secret ending! But perhaps you haven't had
+the chance to complete the regular ending... (although, considering
+your newfound powers, ought to be all to easy.(if you can figure out
+how you should use them!))
+Do you want to continue playing?''')
+
+
 
 
 def health_check(turn_no, character):
