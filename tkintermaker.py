@@ -2,6 +2,8 @@ from tkinter import *
 from PIL import ImageTk
 import tkinter.scrolledtext as ScrolledText
 import sys
+from winsound import PlaySound
+import winsound
 
 
 #import check_command
@@ -32,8 +34,9 @@ def showoimg():
     animation.index = 0
     animation()
     _root.photo = _photo
-
-	
+    
+def much(character):
+    PlaySound('test.wav', winsound.SND_ASYNC)
 
 canvas = Canvas(width = 533, height = 535)
 text = ScrolledText.ScrolledText(width = 70, height = 15)
@@ -55,10 +58,10 @@ def tkintermake():
     welcome.grid(row = 0, column = 0)
     text.grid(columnspan = 3, row = 3, column = 0)
     canvas.grid(rowspan = 3, columnspan = 3, row = 0, column = 2)
-	
     return _root
 
 def exit():
+    PlaySound(None, winsound.SND_ASYNC)
     _root.destroy()
     sys.exit()
 	
