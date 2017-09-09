@@ -129,7 +129,7 @@ to the south of you lies a path uphill leading to a cliff, to the
 north of you lies the waterfall.''',
 	'tools': [],
 	'items': [flower1, flower2, flower3, flower4, flower5],
-    'background': 'desert.png'
+    'background': 'hill.png'
 	}
 
 cliff1 = {
