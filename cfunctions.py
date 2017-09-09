@@ -228,7 +228,7 @@ def inventory_command(character):
 def eat_command(cmd, character, item):
     if item == 'null':
         write(text, 'What do you want to eat?') 
-    if item and item['edible'] and item in character.inventory:
+    elif item and item['edible'] and item in character.inventory:
         if character.health < 20:
             write(text, 'You eat the ' + cmd.item)
             if item == items.berry:

@@ -15,7 +15,8 @@ fruit. There is also a piece of rope here.""",
     'tools': [flint],
     'items': [coconut1, coconut2, coconut3, rope, seagull],
     'fire': False,
-    'background': 'beach.png'
+    'background': 'beach.png',
+    'music': 'test.wav'
     }
 
 rocks1 = {
@@ -28,7 +29,8 @@ see a cute lil' trout!
 [you can fish here]''',
     'tools': [rod, pickaxe],
     'items': [rock, starfish, shellfish],
-    'background': 'rocks.png'
+    'background': 'rocks.png',
+    'music': 'test.wav'
     }
 
 jungle1 = {
@@ -41,7 +43,8 @@ is a clearing here that you should be able to Enter, to take shelter
 for the night. The game trail continues to the east, west, and north.''',
     'tools': [axe],
     'items': [stick1, stick2, vine, berry1, berry2, berry3, berry4],
-    'background': 'jungle.png'
+    'background': 'jungle.png',
+    'music': 'test.wav'
     }
 
 clearing1 = {
@@ -53,7 +56,8 @@ skies. For the first time in a long while, you feel safe.
 This looks like a good place to make camp.''',
     'tools': [],
     'items': [],
-    'background': 'clearing.png'
+    'background': 'clearing.png',
+    'music': 'test.wav'
     }
 
 mountains1 = {
@@ -68,7 +72,8 @@ goats do.
 It looks a bit hungry though...''',
     'tools': [pickaxe, starflower],
     'items': [rock],
-    'background': 'desert.png'
+    'background': 'desert.png',
+    'music': 'test.wav'
     }
 
 village1 = {
@@ -87,7 +92,8 @@ time. However, one house near the edge of the village seems mostly
 intact. Perhaps you could enter here and take refuge?''',
     'tools': [],
     'items': [],
-    'background': 'desert.png'
+    'background': 'desert.png',
+    'music': 'test.wav'
     }
 
 house1 = {
@@ -101,7 +107,8 @@ relax.
 [you can rest here]''',
     'tools': [],
 	'items': [rod, book],
-    'background': 'desert.png'
+    'background': 'desert.png',
+    'music': 'test.wav'
 	}
 	
 
@@ -117,7 +124,8 @@ To the south lies a grassy hillside, covered with wildflowers.
 [you can fish here.]''',
     'tools': [rod],
     'items': [],
-    'background': 'desert.png'
+    'background': 'desert.png',
+    'music': 'test.wav'
     }
 
 hill1 = {
@@ -129,7 +137,8 @@ to the south of you lies a path uphill leading to a cliff, to the
 north of you lies the waterfall.''',
 	'tools': [],
 	'items': [flower1, flower2, flower3, flower4, flower5],
-    'background': 'desert.png'
+    'background': 'desert.png',
+    'music': 'test.wav'
 	}
 
 cliff1 = {
@@ -145,7 +154,8 @@ glistening in the sun. You can tell there is something very special
 about this flower.''',
 	'tools': [pickaxe],
 	'items': [starflower],
-    'background': 'desert.png'
+    'background': 'desert.png',
+    'music': 'test.wav'
 	}
 
 cave1 = {
@@ -180,6 +190,7 @@ Now, follow me. I shall provide you safe passage...
 ''',
 	'tools': [],
 	'items': [rock, bone, book],
-    'background': 'cave.png'
+    'background': 'desert.png',
+    'music': 'test.wav'
 }
 roomslist = [beach1, rocks1, jungle1, clearing1, mountains1, village1, house1, waterfall1, hill1, cliff1, cave1]
