@@ -92,7 +92,7 @@ time. However, one house near the edge of the village seems mostly
 intact. Perhaps you could enter here and take refuge?''',
     'tools': [],
     'items': [],
-    'background': 'desert.png',
+    'background': 'village.png',
     'music': 'test.wav'
     }
 
@@ -107,7 +107,7 @@ relax.
 [you can rest here]''',
     'tools': [],
 	'items': [rod, book],
-    'background': 'desert.png',
+    'background': 'house.png',
     'music': 'test.wav'
 	}
 	
@@ -124,7 +124,7 @@ To the south lies a grassy hillside, covered with wildflowers.
 [you can fish here.]''',
     'tools': [rod],
     'items': [],
-    'background': 'desert.png',
+    'background': 'waterfall.png',
     'music': 'test.wav'
     }
 
@@ -154,7 +154,7 @@ glistening in the sun. You can tell there is something very special
 about this flower.''',
 	'tools': [pickaxe],
 	'items': [starflower],
-    'background': 'desert.png',
+    'background': 'cliff.png',
     'music': 'test.wav'
 	}
 
@@ -190,7 +190,7 @@ Now, follow me. I shall provide you safe passage...
 ''',
 	'tools': [],
 	'items': [rock, bone, book],
-    'background': 'desert.png',
+    'background': 'cave.png',
     'music': 'test.wav'
 }
 roomslist = [beach1, rocks1, jungle1, clearing1, mountains1, village1, house1, waterfall1, hill1, cliff1, cave1]
