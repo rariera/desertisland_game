@@ -3,7 +3,7 @@ import items
 from classes import Output
 from initialisation import initialisation
 import tkintermaker
-from tkintermaker import bach
+from tkintermaker import bach, much
 from gfunctions import chooseroom, get, invcheck, roomreset
 import random
 
@@ -263,6 +263,7 @@ def west_command(character):
         character.loc[1] = character.loc[1] - 1
         chooseroom(character)
         bach(character)
+        much(character)
         noreplace_write(text, 'You are now at the ' + character.room['locname'])
         noreplace_write(text, character.room['setting'])
         character.health = character.health - 2
@@ -275,6 +276,7 @@ def east_command(character):
         character.loc[1] = character.loc[1] + 1
         chooseroom(character)
         bach(character)
+        much(character)
         noreplace_write(text, 'You are now at the ' + character.room['locname'])
         noreplace_write(text, character.room['setting'])
         character.health = character.health - 2
@@ -287,6 +289,7 @@ def north_command(character):
         character.loc[0] = character.loc[0] + 1
         chooseroom(character)
         bach(character)
+        much(character)
         noreplace_write(text, 'You are now at the ' + character.room['locname'])
         noreplace_write(text, character.room['setting'])
         character.health = character.health - 2
@@ -299,6 +302,7 @@ def south_command(character):
         character.loc[0] = character.loc[0] - 1
         chooseroom(character)
         bach(character)
+        much(character)
         noreplace_write(text, 'You are now at the ' + character.room['locname'])
         noreplace_write(text, character.room['setting'])
         character.health = character.health - 2
@@ -326,6 +330,7 @@ def enter_command(character):
         character.loc[0] = character.loc[0] + 0.5
         chooseroom(character)
         bach(character)
+        much(character)
         write(text, 'You enter the ' + character.room['locname'])
         if character.room == cave1:
             character.status = 'end2'
@@ -336,6 +341,7 @@ def exit_command(character):
         character.loc[0] = character.loc[0] - 0.5
         chooseroom(character)
         bach(character)
+        much(character)
 
 def rest_command(character):
     if character.room in [clearing1, house1]:
@@ -356,6 +362,7 @@ def teleport_command(character, cmd):
             character.loc = i['location']
             chooseroom(character)
             bach(character)
+            much(character)
 
 def make_command(item, character, makelist):
     if item in makelist:
@@ -450,6 +457,8 @@ def continue2_command(character):
 you head over to the village? Maybe that'll help you out. Bye!''')
     character.loc = [3,3]
     chooseroom(character)
+    bach(character)
+    much(character)
     noreplace_write(text, character.room['setting'])
 
 def cheat_ending1(character):
@@ -459,6 +468,8 @@ def cheat_ending1(character):
 def cheat_ending2(character):
     character.loc = [3.5,3]
     chooseroom(character)
+    bach(character)
+    much(character)
     write(text, character.room['setting'])
     character.status = 'end2'
     
@@ -484,7 +495,7 @@ def health_check(turn_no, character):
 def health_warning(character):
     #Low health warning
     if character.health <= 5 and character.health >= 1:
-        write(text, 'Caution! Your health is ' + str(character.health) + '''/20! if you do not
+        noreplace_write(text, 'Caution! Your health is ' + str(character.health) + '''/20! if you do not
 regain health soon, you will DIE!!!''')
     else:
         noreplace_write(text, '''

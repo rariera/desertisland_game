@@ -4,6 +4,7 @@ import tkinter.scrolledtext as ScrolledText
 import sys
 from winsound import PlaySound
 import winsound
+import os
 
 _root = Tk()
 _root.configure(bg = 'blue4')
@@ -33,7 +34,12 @@ def showoimg():
     _root.photo = _photo
     
 def much(character):
-    PlaySound(str(character.room['music']), winsound.SND_ASYNC)
+    musicfile = character.room['music']
+    print(musicfile)
+    if os.path.isfile(musicfile):
+        PlaySound(character.room['music'], winsound.SND_FILENAME|winsound.SND_ASYNC)
+    else:
+        print('error: musicfile %s is nonexistent' % musicfile)
 
 canvas = Canvas(width = 533, height = 535)
 text = ScrolledText.ScrolledText(width = 70, height = 15)
