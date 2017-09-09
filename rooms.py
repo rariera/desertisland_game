@@ -16,7 +16,7 @@ fruit. There is also a piece of rope here.""",
     'items': [coconut1, coconut2, coconut3, rope, seagull],
     'fire': False,
     'background': 'beach.png',
-    'music': 'test.wav'
+    'music': 'ocean.wav'
     }
 
 rocks1 = {
@@ -30,7 +30,7 @@ see a cute lil' trout!
     'tools': [rod, pickaxe],
     'items': [rock, starfish, shellfish],
     'background': 'rocks.png',
-    'music': 'test.wav'
+    'music': 'ocean.wav'
     }
 
 jungle1 = {
@@ -57,7 +57,7 @@ This looks like a good place to make camp.''',
     'tools': [],
     'items': [],
     'background': 'clearing.png',
-    'music': 'test.wav'
+    'music': 'clearing.wav'
     }
 
 mountains1 = {
@@ -73,7 +73,7 @@ It looks a bit hungry though...''',
     'tools': [pickaxe, starflower],
     'items': [rock],
     'background': 'mountains.png',
-    'music': 'test.wav'
+    'music': 'wind.wav'
     }
 
 village1 = {
@@ -93,7 +93,7 @@ intact. Perhaps you could enter here and take refuge?''',
     'tools': [],
     'items': [],
     'background': 'village.png',
-    'music': 'test.wav'
+    'music': 'abandoned.wav'
     }
 
 house1 = {
@@ -108,7 +108,7 @@ relax.
     'tools': [],
 	'items': [rod, book],
     'background': 'house.png',
-    'music': 'test.wav'
+    'music': 'haven.wav'
 	}
 	
 
@@ -125,7 +125,7 @@ To the south lies a grassy hillside, covered with wildflowers.
     'tools': [rod],
     'items': [],
     'background': 'waterfall.png',
-    'music': 'test.wav'
+    'music': 'waterfall.wav'
     }
 
 hill1 = {
@@ -137,8 +137,8 @@ to the south of you lies a path uphill leading to a cliff, to the
 north of you lies the waterfall.''',
 	'tools': [],
 	'items': [flower1, flower2, flower3, flower4, flower5],
-    'background': 'hill.png',
-    'music': 'test.wav'
+        'background': 'hill.png',
+        'music': 'test.wav'
 	}
 
 cliff1 = {
@@ -155,7 +155,7 @@ about this flower.''',
 	'tools': [pickaxe],
 	'items': [starflower],
     'background': 'cliff.png',
-    'music': 'test.wav'
+    'music': 'wind.wav'
 	}
 
 cave1 = {
@@ -191,6 +191,6 @@ Now, follow me. I shall provide you safe passage...
 	'tools': [],
 	'items': [rock, bone, book],
     'background': 'cave.png',
-    'music': 'test.wav'
+    'music': 'cave.wav'
 }
 roomslist = [beach1, rocks1, jungle1, clearing1, mountains1, village1, house1, waterfall1, hill1, cliff1, cave1]

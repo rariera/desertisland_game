@@ -1,7 +1,7 @@
 from cfunctions import *
 from classes import *
 import tkintermaker
-from tkintermaker import exit, much
+from tkintermaker import exit
 from initialisation import initialisation
 
 global character
@@ -11,7 +11,6 @@ character = Character(loc = [1,2], health = 20, status = 'alive', token = 0, inv
 
 
 def check_command(cmd, item, collection, toolslist, makelist):
-    much(character)
     if character.status == 'alive':
         verbiage = False
         if cmd.verb in ['help', 'h']:
