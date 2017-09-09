@@ -1,4 +1,3 @@
-
 from tkintermaker import *
 from initialisation import *
 from loop import entry, loop

@@ -5,9 +5,6 @@ import sys
 from winsound import PlaySound
 import winsound
 
-
-#import check_command
-#import health
 _root = Tk()
 _root.configure(bg = 'blue4')
 _root.geometry('765x800')
@@ -36,7 +33,7 @@ def showoimg():
     _root.photo = _photo
     
 def much(character):
-    PlaySound('test.wav', winsound.SND_ASYNC)
+    PlaySound(str(character.room['music']), winsound.SND_ASYNC)
 
 canvas = Canvas(width = 533, height = 535)
 text = ScrolledText.ScrolledText(width = 70, height = 15)
@@ -68,7 +65,3 @@ def exit():
 if __name__ == "__main__":
     root = tkintermake()
     root.mainloop()
-	
-	
-	
-
