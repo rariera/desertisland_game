@@ -68,7 +68,7 @@ goats do.
 It looks a bit hungry though...''',
     'tools': [pickaxe, starflower],
     'items': [rock],
-    'background': 'desert.png'
+    'background': 'mountains.png'
     }
 
 village1 = {
