@@ -44,7 +44,7 @@ for the night. The game trail continues to the east, west, and north.''',
     'tools': [axe],
     'items': [stick1, stick2, vine, berry1, berry2, berry3, berry4],
     'background': 'jungle.png',
-    'music': 'test.wav'
+    'music': 'danger.wav'
     }
 
 clearing1 = {
@@ -72,8 +72,8 @@ goats do.
 It looks a bit hungry though...''',
     'tools': [pickaxe, starflower],
     'items': [rock],
-    'music': 'wind.wav'
-    'background': 'mountains.png',
+    'music': 'wind.wav',
+    'background': 'mountains.png'
     }
 
 village1 = {
