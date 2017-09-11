@@ -44,7 +44,7 @@ for the night. The game trail continues to the east, west, and north.''',
     'tools': [axe],
     'items': [stick1, stick2, vine, berry1, berry2, berry3, berry4],
     'background': 'jungle.png',
-    'music': 'test.wav'
+    'music': 'danger.wav'
     }
 
 clearing1 = {
@@ -99,7 +99,10 @@ intact. Perhaps you could enter here and take refuge?''',
 house1 = {
     'locname': 'house',
 	'location': [2.5,1],
-	'setting': '''Despite this being the strongest building in the village, it is still
+	'setting': '''You open the door and look around, amazed by what you see. 
+Old, broken chairs and tables sit in front of you, a rickety bed in the corner, 
+and against the back wall is a bookshelf. 
+Despite this being the strongest building in the village, it is still
 barely holding together. Wind whistles through cracks in the
 walls, and the roof sags so much that the door refuses to stay
 closed. But then again, the floor is soft, and in here, you can
