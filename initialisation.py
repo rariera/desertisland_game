@@ -26,8 +26,7 @@ If you are unsure what to do, type 'help'.''')
 
 
     InitTuple = collections.namedtuple('InitTuple', ['turn_no'])
-    #global character
-    #character = Character(loc = [1,2], health = 20, inventory = [])
+    tkintermaker.much('beach1')
     print('initialisation has completed')
     roomreset()
     global turn_no

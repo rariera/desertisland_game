@@ -140,7 +140,6 @@ You can examine it using 'ex' or 'examine'.''')
     elif len(character.inventory) == 10:
         write(text, 'Sorry, your inventory is full. You cannot carry more than 10 items.')
     elif item not in character.room['items']:
-        print(character.room['items'])
         write(text, 'get... what? That ain\'t even in this place!')
     elif not item['getable']:
         write(text, 'You can\'t pick that up!')
@@ -150,9 +149,7 @@ def use_command(character, item, toolslist):
     if item in character.inventory and item['usable']:
         if item in character.room['tools'] or item == flower:
             if item == rod:
-                print('the item is a rod!!!')
                 if random.randint(0,2) != 1:
-                    print('You got the fish!')
                     write(text, item['string'])
                     get(item['getitem'], character)
                     noreplace_write(text, 'Success! You caught a fish!')
@@ -403,7 +400,6 @@ def five_command(character):
 
 def drop_command(character, item):
     write(text, 'You drop the ' + item['name'] + '.')
-    print(character.inventory)
     for i in character.inventory:
         if i['name'] == item['name']:
             character.inventory.remove(i)
