@@ -138,7 +138,7 @@ north of you lies the waterfall.''',
 	'tools': [],
 	'items': [flower1, flower2, flower3, flower4, flower5],
         'background': 'hill.png',
-        'music': 'test.wav'
+        'music': 'hills.wav'
 	}
 
 cliff1 = {

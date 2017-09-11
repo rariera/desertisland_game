@@ -84,6 +84,14 @@ a new item. This can be done using the 'make' command, written as
 'make [item]', and if you have all the neccasary items for the item,
 it will be created and put into your inventory. The items used to 
 make it will then be erased.
+Items which can be made include:
+
+Axe - rock, vine, stick
+Pickaxe - rock, vine, stick
+Rod - stick, string, bone
+Flint - rock, steel
+
+You can examine the items to learn more ('ex ____')
 
 (to leave the MHS, type 'leave'.)''')
 
