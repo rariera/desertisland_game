@@ -146,10 +146,10 @@ bone = {
 	}
 starflower = {
     'name': 'starflower',
-	'desc': '''The mythical starflower. Legend says that opportunities will open for those who 
-possess the starflower. Fun fact: Although not fit for consumption
-by the human species, it is a favourite food for many kinds of 
-mammals.''',
+	'desc': '''The mythical starflower. Legend says that opportunities 
+will open for those who possess the starflower. 
+Fun fact: Although not fit for consumption by the human species, 
+it is a favourite food for many kinds of mammals.''',
 	'getable': True,
 	'edible': False,
 	'usable': True,

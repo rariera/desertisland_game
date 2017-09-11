@@ -39,7 +39,7 @@ jungle1 = {
     'setting': '''Around you vines hang low over the game trail, threatening to wrap you
 in their deadly embrace. By the trail, there are many sticks that
 litter the ground, and a berry bush on your right. Luckily, there
-is a clearing here that you should be able to Enter, to take shelter
+is a clearing here that you should be able to enter, to take shelter
 for the night. The game trail continues to the east, west, and north.''',
     'tools': [axe],
     'items': [stick1, stick2, vine, berry1, berry2, berry3, berry4],
@@ -64,11 +64,15 @@ mountains1 = {
     'locname': 'mountains',
     'location': [3,2],
     'setting': '''You find yourself at the foot of an impassable mountain. Around you,
-rocks litter the ground, threatening to trip you at every turn. North
-of you, a cave leads downwards into darkness. To your ease, a short 
-dirt path leads to a waterfall, overflowing into a mountain spring.
-A little way ahead, you spot a mountain goat doing whatever mountain 
-goats do. 
+rocks litter the ground, threatening to trip you at every turn. 
+From here, one can see over the dense vegetation of the jungle and 
+you feel so very powerful, like the ruler of a kingdom, but a very 
+sad ruler that is, because you have no people to rule over. :(
+After all this is a desert island. 
+North of you, a cave leads downwards into darkness. To your east, 
+a short dirt path leads to a waterfall, overflowing into a 
+mountain spring. A little way ahead, you spot a mountain goat doing 
+whatever mountain goats do. 
 It looks a bit hungry though...''',
     'tools': [pickaxe, starflower],
     'items': [rock],
@@ -100,8 +104,8 @@ house1 = {
     'locname': 'house',
 	'location': [2.5,1],
 	'setting': '''You open the door and look around, amazed by what you see. 
-Old, broken chairs and tables sit in front of you, a rickety bed in the corner, 
-and against the back wall is a bookshelf. 
+Old, broken chairs and tables sit in front of you, a rickety bed in 
+the corner, and against the back wall is a bookshelf. 
 Despite this being the strongest building in the village, it is still
 barely holding together. Wind whistles through cracks in the
 walls, and the roof sags so much that the door refuses to stay
