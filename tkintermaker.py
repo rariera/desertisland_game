@@ -34,12 +34,16 @@ def showoimg():
     _root.photo = _photo
     
 def much(character):
-    musicfile = character.room['music']
+    if character != 'beach1':
+        musicfile = character.room['music']
+    else:
+        musicfile = 'ocean.wav'
     print(musicfile)
     if os.path.isfile(musicfile):
-        PlaySound(character.room['music'], winsound.SND_FILENAME|winsound.SND_ASYNC)
+        PlaySound(musicfile, winsound.SND_ASYNC|winsound.SND_LOOP)
     else:
         print('error: musicfile %s is nonexistent' % musicfile)
+
 
 canvas = Canvas(width = 533, height = 535)
 text = ScrolledText.ScrolledText(width = 70, height = 15)
