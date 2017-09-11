@@ -144,7 +144,7 @@ north of you lies the waterfall.''',
 cliff1 = {
     'locname': 'cliff',
 	'location': [1,3],
-	'setting': '''You stand on the edge of a cliff, a rocky precipace leading downward
+	'setting': '''You stand on the edge of a cliff, a rocky precipice leading downward
 onto the unforgiving rocks below. Looking to your right, far below
 you lies the beach where you washed up. You feel amused as you
 realise there is still a life sized intentation in the sand.
