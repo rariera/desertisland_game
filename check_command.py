@@ -61,6 +61,11 @@ def check_command(cmd, item, collection, toolslist, makelist):
             cheat_ending1(character)
         elif cmd.verb == '_end2':
             cheat_ending2(character)
+        #These are the troll commands
+        elif cmd.verb == 'swim':
+            swim_command(character)
+        elif cmd.verb == 'jump':
+            jump_command(character)
         else:
             error_command()
         character.token = character.token + 1
@@ -116,5 +121,11 @@ def chealth_warning():
 def cstarvation_check():
     starvation_check(character)
 
+def dispinvent():
+    inventory_command(character)
+
+def credits():
+    credits_command()
+    
 def mini(entry, program):
     entry.bind('<Return>', program)

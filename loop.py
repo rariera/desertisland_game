@@ -19,7 +19,11 @@ def entryget(Event = None):
 global turn_no
 turn_no = 0
 
+def dispinv():
+    check_command.dispinvent()
 
+def dispcred():
+    check_command.credits()
 
 def loop(self):
     entryget()
@@ -36,7 +40,11 @@ def loop(self):
 entry = Entry()
 entry.grid(row = 1, column = 0)
 
+invent = Button(text = 'Inventory', command = dispinv)
+invent.grid(column = 3, row = 4)
 
+credits = Button(text = 'Credits', command = dispcred)
+credits.grid(column = 3, row = 3)
 
 confirm = Button(text = 'Enter', command = loop)
 confirm.grid(row = 1, column = 1)

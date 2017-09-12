@@ -485,8 +485,37 @@ your newfound powers, ought to be all to easy.(if you can figure out
 how you should use them!))
 Do you want to continue playing?''')
 
+def credits_command():
+    write(text, '''
+Despite the game being a group effort, we all had things that we
+especially worked on. These can be seen below.
+Ella Huang: Main Writer
+Jennifer Du: Main Artist
+Laura Wrigley-Carr: Tech Support
+Also, many thanks to Gavin Carr, for being the Tech Support for when
+the Tech Support failed.
+''')
 
+def swim_command(character):
+    if character.room == beach1:
+        write(text, '''You swim for about 100m before it occurs to you that this is a very 
+bad idea.''')
+    elif character.room == waterfall1:
+        write(text, '''You jump in the pool of water and splash around for a while. Your
+morale increased, but not sure how this is supposed to help you get off the island...?''')
+    else:
+        write(text, 'You writhe around on the ground, but nothing happens. Odd...')
 
+def jump_command(character):
+    if character.room == cliff1:
+        write(text, '''...Ok then? You jump off the cliff to your death. Such a sorrowful
+waste of life...
+Why do you suddenly think of tacos? One of life's many mysteries...''')
+        death(character)
+    else:
+        write(text, '''You search for something to jump off of, but sadly there are no cliffs
+around here.
+But then, You reflect, life is such a precious thing...''')
 
 def health_check(turn_no, character):
     #This is turn-based health deductor

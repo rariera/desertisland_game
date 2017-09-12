@@ -63,7 +63,7 @@ def bach(character):
 def tkintermake():
     welcome = Label(text = '''Welcome to the desert island game!\nType something in the entry\n\nbox to begin!''', bg = 'blue4', fg = 'white')
     welcome.grid(row = 0, column = 0)
-    text.grid(columnspan = 3, row = 3, column = 0)
+    text.grid(columnspan = 3, rowspan = 10, row = 3, column = 0)
     canvas.grid(rowspan = 3, columnspan = 3, row = 0, column = 2)
     return _root
 
