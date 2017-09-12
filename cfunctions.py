@@ -32,7 +32,7 @@ help - I will come and aid you once more... if you say please...
 n, s, w, e - Used to move from place to place - Note you can only 
 move in certain directions in each room, as indicated by the 
 description
-examine/ex - In some settings, there are mini-locations that you can
+examine/ex _______ - In some settings, there are mini-locations that you can
              enter - as indicated by the description
 enter/exit - can be used to enter or exit a mini-location inside a
 room, as indicated by description

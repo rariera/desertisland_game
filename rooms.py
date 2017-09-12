@@ -66,9 +66,9 @@ mountains1 = {
     'setting': '''You find yourself at the foot of an impassable mountain. Around you,
 rocks litter the ground, threatening to trip you at every turn. 
 From here, one can see over the dense vegetation of the jungle and 
-you feel so very powerful, like the ruler of a kingdom, but a very 
+you feel very powerful, like the ruler of a kingdom, but a very 
 sad ruler that is, because you have no people to rule over. :(
-After all this is a desert island. 
+After all this is a deserted island. 
 North of you, a cave leads downwards into darkness. To your east, 
 a short dirt path leads to a waterfall, overflowing into a 
 mountain spring. A little way ahead, you spot a mountain goat doing 
