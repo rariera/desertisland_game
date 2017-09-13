@@ -73,8 +73,14 @@ mountain1 = {
     'setting': '''You find yourself at the foot of an impassable mountain. Around you,
 rocks litter the ground, threatening to trip you at every turn.
 To your ease, a short dirt path leads to a waterfall, overflowing
-into a mountain spring. A little way ahead, you spot a mountain goat
-doing whatever mountain goats do. 
+into a mountain spring.
+From here, one can see over the dense vegetation of the jungle,
+showing the island in its' entirety. You feel very powerful, like
+the ruler of a kingdom, albiet a very sad one, as you have no people
+to rule over. :(
+After all, this IS a deserted island.
+A little ahead, you spot a mountain goat doing whatever mountain
+goats do.
 It looks a bit hungry though... [try and feed goat with 'use ____']
 [You can use a pickaxe here, to get steel. The trail continues to the
 south and east.]''',
@@ -108,7 +114,10 @@ intact. Perhaps you could enter here and take refuge?
 house1 = {
     'locname': 'house',
 	'location': [2.5,1],
-	'setting': '''Despite this being the strongest building in the village, it is still
+	'setting': '''You open the door and look around, amazed by what you see. 
+Old, broken chairs and tables sit in front of you, a rickety bed in 
+the corner, and against the back wall is a bookshelf. 
+Despite this being the strongest building in the village, it is still
 barely holding together. Wind whistles through cracks in the
 walls, and the roof sags so much that the door refuses to stay
 closed. But then again, the floor is soft, and in here, you can
@@ -154,7 +163,7 @@ north of you lies the waterfall.
 cliff1 = {
     'locname': 'cliff',
 	'location': [1,3],
-	'setting': '''You stand on the edge of a cliff, a rocky precipace leading downward
+	'setting': '''You stand on the edge of a cliff, a rocky precipice leading downward
 onto the unforgiving rocks below. Looking to your right, far below
 you lies the beach where you washed up. You feel amused as you
 realise there is still a life sized intentation in the sand.
