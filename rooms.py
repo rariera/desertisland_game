@@ -5,15 +5,19 @@ beach1 = {
     'locname': 'beach',
     'location': [1,2],
     'setting': """Around you are small yellow particles littering the beach. Oh wait,
-it\'s just sand. To the right is an impassable shelf of rock. In
+it\'s just sand. To the east is an impassable shelf of rock. In
 front of you is a small winding trail, leading into the jungle.
-To your left is more beach. And behind you? Behind you there is
-the endless ocean, the waves lapping at the shore, so reminisent
-of the storm that caused you to wash up on this desolate
-beach. To your left, a coconut tree sags, offering you it's
-fruit. There is also a piece of rope here.""",
+To your west is more beach, leading down to a rocky inlet. And 
+behind you? Behind you there is the endless ocean, the waves 
+lapping at the shore, so reminisent of the storm that caused 
+you to wash up on this desolate beach. To your left, a coconut
+tree sags, offering you it's fruit. There is also a piece of 
+rope here.
+
+[You can go north or west]
+""",
     'tools': [flint],
-    'items': [coconut1, coconut2, coconut3, rope, seagull],
+    'items': [coconut1, coconut2, coconut3, rope1, seagull1],
     'fire': False,
     'background': 'beach.png',
     'music': 'ocean.wav'
@@ -26,7 +30,8 @@ rocks1 = {
 fell here in a meteor shower. It seems many animals have made their
 home here: starfish, shellfish, in one of the rock pools, you even 
 see a cute lil' trout!
-[you can fish here]''',
+[you can go fishing here with a rod]
+The trail continues to the east.''',
     'tools': [rod, pickaxe],
     'items': [rock, starfish, shellfish],
     'background': 'rocks.png',
@@ -40,7 +45,8 @@ jungle1 = {
 in their deadly embrace. By the trail, there are many sticks that
 litter the ground, and a berry bush on your right. Luckily, there
 is a clearing here that you should be able to Enter, to take shelter
-for the night. The game trail continues to the east, west, and north.''',
+for the night. The game trail continues to the south, west, and north.
+[You can use an axe here to get wood.]''',
     'tools': [axe],
     'items': [stick1, stick2, vine, berry1, berry2, berry3, berry4],
     'background': 'jungle.png',
@@ -53,23 +59,25 @@ clearing1 = {
     'setting': '''A soft clearing is spread out before you. The various trees around you
 branch together like a low ceiling, sheltering you from the darkened
 skies. For the first time in a long while, you feel safe.
-This looks like a good place to make camp.''',
+This looks like a good place to make camp.
+[You can rest here, and leave the clearing with 'exit'.]''',
     'tools': [],
     'items': [],
     'background': 'clearing.png',
     'music': 'clearing.wav'
     }
 
-mountains1 = {
-    'locname': 'mountains',
+mountain1 = {
+    'locname': 'mountain',
     'location': [3,2],
     'setting': '''You find yourself at the foot of an impassable mountain. Around you,
-rocks litter the ground, threatening to trip you at every turn. North
-of you, a cave leads downwards into darkness. To your ease, a short 
-dirt path leads to a waterfall, overflowing into a mountain spring.
-A little way ahead, you spot a mountain goat doing whatever mountain 
-goats do. 
-It looks a bit hungry though...''',
+rocks litter the ground, threatening to trip you at every turn.
+To your ease, a short dirt path leads to a waterfall, overflowing
+into a mountain spring. A little way ahead, you spot a mountain goat
+doing whatever mountain goats do. 
+It looks a bit hungry though... [try and feed goat with 'use ____']
+[You can use a pickaxe here, to get steel. The trail continues to the
+south and east.]''',
     'tools': [pickaxe, starflower],
     'items': [rock],
     'background': 'mountains.png',
@@ -89,7 +97,8 @@ home after all...
 As you look about the dusty village, you begin to notice that many
 of the homes around here are in ruins, worn away by the course of
 time. However, one house near the edge of the village seems mostly
-intact. Perhaps you could enter here and take refuge?''',
+intact. Perhaps you could enter here and take refuge?
+[The trail continues into the jungle, to the east.']''',
     'tools': [],
     'items': [],
     'background': 'village.png',
@@ -103,10 +112,10 @@ house1 = {
 barely holding together. Wind whistles through cracks in the
 walls, and the roof sags so much that the door refuses to stay
 closed. But then again, the floor is soft, and in here, you can
-relax.
-[you can rest here]''',
+relax. There is a rod, an old book and some bones here.
+[you can rest here. To leave, type 'exit']''',
     'tools': [],
-	'items': [rod, book],
+	'items': [rod, book, bone1, bone2],
     'background': 'house.png',
     'music': 'haven.wav'
 	}
@@ -121,7 +130,7 @@ rushing quickly into the mountain spring at your feet. As it hits the
 surface of the water, it sends up white froth in all directions. To
 your west, there is a short dirt path, leading back to the mountain.
 To the south lies a grassy hillside, covered with wildflowers.
-[you can fish here.]''',
+[You can fish here with a rod. The trail continues to the west and south.]''',
     'tools': [rod],
     'items': [],
     'background': 'waterfall.png',
@@ -134,7 +143,8 @@ hill1 = {
 	'setting': '''You stand on a grassy hillside, surrounded by flowers. The wind
 whistles through the grass, causing it to roll in waves around you.
 to the south of you lies a path uphill leading to a cliff, to the 
-north of you lies the waterfall.''',
+north of you lies the waterfall.
+[You can go to the north, or south]''',
 	'tools': [],
 	'items': [flower1, flower2, flower3, flower4, flower5],
         'background': 'hill.png',
@@ -151,7 +161,8 @@ realise there is still a life sized intentation in the sand.
 
 Just before the edge of the cliff lies a silver flower, a starflower,
 glistening in the sun. You can tell there is something very special
-about this flower.''',
+about this flower.
+[The trail continues to the north]''',
 	'tools': [pickaxe],
 	'items': [starflower],
     'background': 'cliff.png',
@@ -189,8 +200,8 @@ Now, follow me. I shall provide you safe passage...
 [press Enter]
 ''',
 	'tools': [],
-	'items': [rock, bone, book],
+	'items': [rock, book],
     'background': 'cave.png',
     'music': 'cave.wav'
 }
-roomslist = [beach1, rocks1, jungle1, clearing1, mountains1, village1, house1, waterfall1, hill1, cliff1, cave1]
+roomslist = [beach1, rocks1, jungle1, clearing1, mountain1, village1, house1, waterfall1, hill1, cliff1, cave1]

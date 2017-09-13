@@ -40,8 +40,9 @@ rest - used to restore 10 HP - can only be done inside safe location
 drop ____ - used to drop an item in your inventory
 
 If you need help on a specific topic, type 'topics' in the help 
-prompt, and I will list the topics I can assist you on. If you wish
-to leave the MHS, type 'leave' to exit the help station.
+prompt, and I will list the topics I can assist you on.
+
+IF YOU WISH TO LEAVE THE MHS, TYPE 'leave' TO EXIT THE HELP MENU.
 
 Please note, some commands are secret, and must be discovered for 
 yourself.
@@ -146,7 +147,8 @@ You can examine it using 'ex' or 'examine'.''')
         character.room['items'].remove(item)
         get(item, character)
     elif len(character.inventory) == 10:
-        write(text, 'Sorry, your inventory is full. You cannot carry more than 10 items.')
+        write(text, '''Sorry, your inventory is full. You cannot carry more than 10 items.
+perhaps you could drop something to make room?''')
     elif item not in character.room['items']:
         write(text, 'get... what? That ain\'t even in this place!')
     elif not item['getable']:
@@ -207,6 +209,9 @@ Enlightened by the goat's words, you continue on your journey...''')
                 noreplace_write(text, 'Your ' + item['name'] + ' broke. Guess you ran out of uses.')
         else:
             write(text, 'You can\'t use that in this room.')
+    elif item['edible'] and character.room == mountain1:
+        write(text, '''The goat doesn't seem to like it... Maybe try something else?
+(Hint: Try examining your items)''')
     elif item in toolslist:
         write(text, 'You don\'t have one of those!')
     elif item in character.inventory:
@@ -276,7 +281,7 @@ def west_command(character):
         write(text, 'You can\'t go that way!')
     
 def east_command(character):
-    if character.room in [mountains1, village1, rocks1]:
+    if character.room in [mountain1, village1, rocks1]:
         write(text, 'You walk to the east.')
         character.loc[1] = character.loc[1] + 1
         chooseroom(character)
@@ -302,7 +307,7 @@ def north_command(character):
           write(text, 'You can\'t go that way!')
           
 def south_command(character):
-    if character.room in [mountains1, waterfall1, jungle1, hill1]:
+    if character.room in [mountain1, waterfall1, jungle1, hill1]:
         write(text, 'You walk to the south.')
         character.loc[0] = character.loc[0] - 1
         chooseroom(character)
@@ -322,7 +327,7 @@ def examine_command(item):
     noreplace_write(text, 'Getable: ' + str(item['getable']))
     noreplace_write(text, 'Edible: ' + str(item['edible']))
     noreplace_write(text, 'Usable: ' + str(item['usable']))
-    if item['usable']:
+    if item['usable'] == True:
         namelist = [i['name'] for i in item['ingredients']]
         noreplace_write(text, 'Ingredients:' + str(namelist))
     else:
@@ -334,9 +339,14 @@ def enter_command(character):
     if character.room in [jungle1, village1, waterfall1]:
         character.loc[0] = character.loc[0] + 0.5
         chooseroom(character)
+        if character.room == cave1:
+            write(text, 'You step through the waterfall....')
+        else:
+            write(text, '')
         bach(character)
         much(character)
-        write(text, 'You enter the ' + character.room['locname'])
+        noreplace_write(text, 'You enter the ' + character.room['locname'])
+        noreplace_write(text, character.room['setting'])
         if character.room == cave1:
             character.status = 'end2'
 
@@ -347,6 +357,7 @@ def exit_command(character):
         chooseroom(character)
         bach(character)
         much(character)
+        noreplace_write(text, character.room['setting'])
 
 def rest_command(character):
     if character.room in [clearing1, house1]:
@@ -408,10 +419,12 @@ def five_command(character):
 
 def drop_command(character, item):
     write(text, 'You drop the ' + item['name'] + '.')
+    forloop = True
     for i in character.inventory:
-        if i['name'] == item['name']:
+        if i['name'] == item['name'] and forloop == True:
             character.inventory.remove(i)
-            continue
+            print('coconuts!')
+            forloop = False
 
 
 

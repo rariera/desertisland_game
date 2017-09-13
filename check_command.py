@@ -124,6 +124,9 @@ def cstarvation_check():
 def dispinvent():
     inventory_command(character)
 
+def disphelp():
+    help_command(character)
+
 def credits():
     credits_command()
     

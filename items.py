@@ -24,6 +24,7 @@ rope = {
     'health': 'N/A',
     'inv': 0
     }
+rope1 = copy.copy(rope)
 seagull = {
     'name': 'seagull',
     'desc': '''A seagull swoops in the sky, searching for food. It eyes you in a way
@@ -34,6 +35,7 @@ that makes you feel uncomfortable...''',
     'health': 8,
     'inv': 0
     }
+seagull1 = copy.copy(seagull)
 rock = {
     'name': 'rock',
     'desc': '''Here is a sharp piece of rock. Maybe you could use it to make 
@@ -144,6 +146,8 @@ bone = {
 	'health': 'N/A',
 	'inv': 0
 	}
+bone1 = copy.copy(bone)
+bone2 = copy.copy(bone)
 starflower = {
     'name': 'starflower',
 	'desc': '''The mythical starflower. Legend says that opportunities will open for those who 
@@ -217,6 +221,8 @@ pickaxe = {
     'usable': True,
     'health': 'N/A',
     'ingredients': [rock, stick, vine],
+    'string': '''You use the pickaxe. The rocks boom around the mountainside, due to
+    your huge abs. You got one steel.''',
     'getitem': steel,
     'usenumber': 5,
     'inv': 0}

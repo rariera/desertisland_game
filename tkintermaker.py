@@ -45,7 +45,7 @@ def much(character):
         print('error: musicfile %s is nonexistent' % musicfile)
 
 
-canvas = Canvas(width = 533, height = 535)
+canvas = Canvas(width = 533, height = 533)
 text = ScrolledText.ScrolledText(width = 70, height = 15)
 _frames = [ PhotoImage(file='beginning.gif', format = 'gif -index %i' % i) for i in range(0,31) ]
 _photo = ImageTk.PhotoImage(file = 'desert.png')

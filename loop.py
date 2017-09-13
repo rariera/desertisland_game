@@ -5,9 +5,9 @@ from tkinter import *
 from tkintermaker import *
 from gfunctions import parsecommand, finditem
 
-itemslist = [coconut, rope, seagull, rock, starfish, shellfish, stick, vine, berry, book, string, starflower, bone, flower, fish, wood, axe, rod, steel, flint]
-toolslist = [axe, rod, flower, flint]
-makelist = [axe, rod, flint]
+itemslist = [coconut, rope, seagull, rock, starfish, shellfish, stick, vine, berry, book, string, starflower, bone, flower, fish, wood, axe, rod, steel, flint, pickaxe]
+toolslist = [axe, rod, flower, flint, pickaxe]
+makelist = [axe, rod, flint, pickaxe]
 
 
 def entryget(Event = None): 
@@ -24,6 +24,10 @@ def dispinv():
 
 def dispcred():
     check_command.credits()
+    
+def disphelpb():
+    check_command.disphelp()
+
 
 def loop(self):
     entryget()
@@ -44,11 +48,10 @@ invent = Button(text = 'Inventory', command = dispinv)
 invent.grid(column = 3, row = 4)
 
 credits = Button(text = 'Credits', command = dispcred)
-credits.grid(column = 3, row = 3)
+credits.grid(column = 3, row = 5)
 
-confirm = Button(text = 'Enter', command = loop)
-confirm.grid(row = 1, column = 1)
-
+helpbutton = Button(text = 'Help', command = disphelpb)
+helpbutton.grid(column = 3, row = 3)
 
 
 

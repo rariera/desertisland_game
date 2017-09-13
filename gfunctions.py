@@ -32,7 +32,7 @@ def chooseroom(character):
     elif character.loc == [2.5,2]:
         character.room = clearing1
     elif character.loc == [3,2]:
-        character.room = mountains1
+        character.room = mountain1
     elif character.loc == [2,1]:
         character.room = village1
     elif character.loc == [2.5,1]:
@@ -53,7 +53,7 @@ def roomreset():
     rocks1['items'] = [rock, starfish, shellfish]
     jungle1['items'] = [stick1, stick2, vine, berry1, berry2, berry3, berry4]
     clearing1['items'] = []
-    mountains1['items'] = [rock]
+    mountain1['items'] = [rock]
     village1['items'] = []
     house1['items'] = [rod, book]
     waterfall1['items'] = []
