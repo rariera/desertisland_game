@@ -33,7 +33,7 @@ see a cute lil' trout!
 [you can go fishing here with a rod]
 The trail continues to the east.''',
     'tools': [rod, pickaxe],
-    'items': [rock, starfish, shellfish],
+    'items': [rock4, rock5, starfish, shellfish],
     'background': 'rocks.png',
     'music': 'ocean.wav'
     }
@@ -48,13 +48,13 @@ is a clearing here that you should be able to Enter, to take shelter
 for the night. The game trail continues to the south, west, and north.
 [You can use an axe here to get wood.]''',
     'tools': [axe],
-    'items': [stick1, stick2, vine, berry1, berry2, berry3, berry4],
+    'items': [stick1, stick2, vine1, vine2, berry1, berry2, berry3, berry4],
     'background': 'jungle.png',
     'music': 'danger.wav'
     }
 
 clearing1 = {
-    'locname': 'clearing',
+    'locname': 'clearing  ',
     'location': [2.5,2],
     'setting': '''A soft clearing is spread out before you. The various trees around you
 branch together like a low ceiling, sheltering you from the darkened
@@ -82,10 +82,11 @@ After all, this IS a deserted island.
 A little ahead, you spot a mountain goat doing whatever mountain
 goats do.
 It looks a bit hungry though... [try and feed goat with 'use ____']
+There is a pile of rocks here.
 [You can use a pickaxe here, to get steel. The trail continues to the
 south and east.]''',
     'tools': [pickaxe, starflower],
-    'items': [rock],
+    'items': [rock1, rock2, rock3, coconut],
     'background': 'mountains.png',
     'music': 'wind.wav'
     }
@@ -103,7 +104,7 @@ home after all...
 As you look about the dusty village, you begin to notice that many
 of the homes around here are in ruins, worn away by the course of
 time. However, one house near the edge of the village seems mostly
-intact. Perhaps you could enter here and take refuge?
+intact. Perhaps you could Enter here and take refuge?
 [The trail continues into the jungle, to the east.']''',
     'tools': [],
     'items': [],
@@ -124,7 +125,7 @@ closed. But then again, the floor is soft, and in here, you can
 relax. There is a rod, an old book and some bones here.
 [you can rest here. To leave, type 'exit']''',
     'tools': [],
-	'items': [rod, book, bone1, bone2],
+	'items': [rod, book, bone1, bone2, bone3],
     'background': 'house.png',
     'music': 'haven.wav'
 	}
@@ -136,12 +137,14 @@ waterfall1 = {
     'location': [3,3],
     'setting': '''Before you there is a waterfall, filled with crystal clear water
 rushing quickly into the mountain spring at your feet. As it hits the
-surface of the water, it sends up white froth in all directions. To
-your west, there is a short dirt path, leading back to the mountain.
-To the south lies a grassy hillside, covered with wildflowers.
+surface of the water, it sends up white froth in all directions. A
+long vine hangs down, begging for you to grasp it and jump in to the
+cool, refreshing water. To your west, there is a short dirt path, 
+leading back to the mountain. To the south lies a grassy hillside, 
+covered with wildflowers.
 [You can fish here with a rod. The trail continues to the west and south.]''',
     'tools': [rod],
-    'items': [],
+    'items': [vine3],
     'background': 'waterfall.png',
     'music': 'waterfall.wav'
     }
@@ -155,7 +158,7 @@ to the south of you lies a path uphill leading to a cliff, to the
 north of you lies the waterfall.
 [You can go to the north, or south]''',
 	'tools': [],
-	'items': [flower1, flower2, flower3, flower4, flower5],
+	'items': [flower1, flower2, flower3, flower4, flower5, rock1],
         'background': 'hill.png',
         'music': 'hills.wav'
 	}

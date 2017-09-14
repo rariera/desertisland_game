@@ -8,8 +8,7 @@ coconut = {
     'getable': True,
     'edible': True,
     'usable': False,
-    'health': 5,
-    'inv': 0
+    'health': 5
     }
 coconut1 = copy.copy(coconut)     
 coconut2 = copy.copy(coconut)
@@ -21,8 +20,7 @@ rope = {
     'getable': True,
     'edible': False,
     'usable': True,
-    'health': 'N/A',
-    'inv': 0
+    'health': 'N/A'
     }
 rope1 = copy.copy(rope)
 seagull = {
@@ -32,8 +30,7 @@ that makes you feel uncomfortable...''',
     'getable': False,
     'edible': True,
     'usable': False,
-    'health': 8,
-    'inv': 0
+    'health': 8
     }
 seagull1 = copy.copy(seagull)
 rock = {
@@ -43,17 +40,20 @@ something...''',
     'getable': True,
     'edible': False,
     'usable': True,
-    'health': 'N/A',
-    'inv': 0
+    'health': 'N/A'
     }
+rock1 = copy.copy(rock)
+rock2 = copy.copy(rock)
+rock3 = copy.copy(rock)
+rock4 = copy.copy(rock)
+rock5 = copy.copy(rock)
 starfish = {
     'name': 'starfish',
     'desc': 'The starfish contemplates life in a rockpool...',
     'getable': True,
     'edible': True,
     'usable': True,
-    'health': 6,
-    'inv': 0
+    'health': 6
     }
 shellfish = {
     'name': 'shellfish',
@@ -61,8 +61,7 @@ shellfish = {
     'getable': True,
     'edible': True,
     'usable': False,
-    'health': 3,
-    'inv': 0
+    'health': 3
     }
 stick = {
     'name': 'stick',
@@ -71,8 +70,7 @@ could have been, and what it may yet become.''',
     'getable': True,
     'edible': False,
     'usable': False,
-    'health': 'N/A',
-    'inv': 0
+    'health': 'N/A'
     }
 stick1 = copy.copy(stick)
 stick2 = copy.copy(stick)
@@ -83,9 +81,11 @@ still be useful...''',
     'getable': True,
     'edible': False,
     'usable': False,
-    'health': 'N/A',
-    'inv': 0
+    'health': 'N/A'
     }
+vine1 = copy.copy(vine)
+vine2 = copy.copy(vine)
+vine3 = copy.copy(vine)
 berry = {
     'name': 'berry',
     'desc': """A purple berry. You roll it in your hand. It could be delicious, but
@@ -93,8 +93,7 @@ what if it kills you instead?""",
     'getable': True,
     'edible': True,
     'usable': False,
-    'health': 'N/A',
-    'inv': 0
+    'health': 'N/A'
     }
 berry1 = copy.copy(berry)
 berry2 = copy.copy(berry)
@@ -108,9 +107,11 @@ the kind known as 'sandstone'....''',
 	'getable': True,
 	'edible': False,
 	'usable': False,
-	'health': 'N/A',
-	'inv': 0
+	'health': 'N/A'
 	}
+rock1 = copy.copy(rock)
+rock2 = copy.copy(rock)
+rock3 = copy.copy(rock)
 book = {
     'name': 'book',
 	'desc': '''Tattered and beaten, this book seems to be ancient
@@ -124,8 +125,7 @@ That's all you could read.''',
     'getable': True,
 	'edible': False,
 	'usable': False,
-	'health': 'N/A',
-	'inv': 0
+	'health': 'N/A'
 	}
 string = {
     'name': 'string',
@@ -133,8 +133,7 @@ string = {
 	'getable': False,
 	'edible': False,
 	'usable': False,
-	'health': 'N/A',
-	'inv': 0
+	'health': 'N/A'
 	}
 
 bone = {
@@ -143,22 +142,21 @@ bone = {
 	'getable': True,
 	'edible': False,
 	'usable': False,
-	'health': 'N/A',
-	'inv': 0
+	'health': 'N/A'
 	}
 bone1 = copy.copy(bone)
 bone2 = copy.copy(bone)
+bone3 = copy.copy(bone)
 starflower = {
     'name': 'starflower',
 	'desc': '''The mythical starflower. Legend says that opportunities 
 will open for those who possess the starflower. 
 Fun fact: Although not fit for consumption by the human species, 
-it is a favourite food for many kinds of mammals.''',
+it is a favourite food of many kinds of mammals.''',
 	'getable': True,
 	'edible': False,
 	'usable': True,
-	'health': 'N/A',
-	'inv': 0
+	'health': 'N/A'
 }
 
 #This is a list of usable items:
@@ -173,8 +171,7 @@ can be used to make string, which is used in multiple different tools
 	'health': 'N/A',
 	'string': 'You use the flower to make string(1)',
 	'getitem': string,
-	'usenumber': 1,
-	'inv': 0
+	'usenumber': 1
 	}
 flower1 = copy.copy(flower)
 flower2 = copy.copy(flower)
@@ -189,8 +186,7 @@ wood = {
     'getable': False,
     'edible': False,
     'usable': False,
-    'health': 'N/A',
-    'inv': 0
+    'health': 'N/A'
     }
 
 fish = {
@@ -199,8 +195,7 @@ fish = {
 	'getable': False,
 	'edible': True,
 	'usable': False,
-	'health': 7,
-	'inv': 0
+	'health': 7
 	}
 steel = {
     'name': 'steel',
@@ -208,8 +203,7 @@ steel = {
     'getable': True,
     'edible': False,
     'usable': False,
-    'health': 'N/A',
-    'inv': 0
+    'health': 'N/A'
     }
 
 #This is the info about the tools...
@@ -224,21 +218,20 @@ pickaxe = {
     'string': '''You use the pickaxe. The rocks boom around the mountainside, due to
     your huge abs. You got one steel.''',
     'getitem': steel,
-    'usenumber': 5,
-    'inv': 0}
+    'usenumber': 5
+    }
 axe = {
     'name': 'axe',
     'desc': 'A makeshift axe. Looks like it can break apart at any time.',
     'getable': False,
     'edible': False,
     'usable': True,
-    'health': 0,
+    'health': 'N/A',
     'ingredients': [rock, vine, stick],
     'string': '''You use the axe. The sapling falls to the ground, another defeated
 foe >:). You got 1 wood.''',
     'getitem': wood,
-    'usenumber': 4,
-    'inv': 0
+    'usenumber': 4
     }
 rod = {
     'name': "rod",
@@ -246,12 +239,11 @@ rod = {
 	'getable': False,
 	'edible': False,
 	'usable': True,
-	'health': 0,
+	'health': 'N/A',
 	'ingredients': [stick, string, bone],
 	'string': '''You cast the fishing rod into the water. but will it yield a fish?''',
 	'getitem': fish,
-	'usenumber': 6,
-	'inv': 0
+	'usenumber': 6
 	}
 flint = {
     'name': 'flint',
@@ -263,8 +255,7 @@ flint = {
     'ingredients': [rock, steel],
     'string': '''You use the flint and steel. Congratulations! You have created FIRE!!!''',
     'getitem': False,
-    'usenumber': 10,
-    'inv': 0
+    'usenumber': 10
     }
 
 

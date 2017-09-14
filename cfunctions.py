@@ -23,17 +23,17 @@ Use it well...
 
 look/l - Tells you what you can see.
 get _______ - Can be used to pick up an item - Note not all items are
-              getable.
+getable.
 inventory/i - Tells you what is in your inventory
 eat _______ - Can be used to eat an item - Note not all items are
-              edible.
+edible.
 health - Tells you how much health you have left
 help - I will come and aid you once more... if you say please...
 n, s, w, e - Used to move from place to place - Note you can only 
 move in certain directions in each room, as indicated by the 
 description
-examine/ex _______ - In some settings, there are mini-locations that you can
-             enter - as indicated by the description
+examine/ex _______ - In some settings, there are mini-locations that
+you can enter - as indicated by the description
 enter/exit - can be used to enter or exit a mini-location inside a
 room, as indicated by description
 rest - used to restore 10 HP - can only be done inside safe location
@@ -79,7 +79,7 @@ removed from the inventory.
 
 (to leave the MHS, type 'leave'.)''')
 
-def crafting_command():
+def crafting_command(character):
     write(text, '''Crafting is where you combine multiple different items together into
 a new item. This can be done using the 'make' command, written as 
 'make [item]', and if you have all the neccasary items for the item,
@@ -93,8 +93,9 @@ Rod - stick, string, bone
 Flint - rock, steel
 
 You can examine the items to learn more ('ex ____')
-
-(to leave the MHS, type 'leave'.)''')
+''')
+    if character.status == 'help':
+        noreplace_write(text, '(to leave the MHS, type \'leave\'.)')
 
 def hpinfo_command():
     write(text, '''Health points, or HP, is a way of measuring a characters health. If
@@ -122,8 +123,7 @@ tell you.
 (to leave the MHS, type 'leave'.)''')
 
 def look_command(character):
-#   write(text, character.room['setting'])
-    return character.room['setting']
+    write(text, character.room['setting'])
     
 def items_command(room):
     ''' Returns a string listing the items in a room '''
@@ -134,18 +134,26 @@ def get_command(cmd, character, item):
     if cmd.item == 'trout' and character.room == rocks1:
         write(text, '''You try to grab the trout.... But it eludes you, staring back in 
 disdain.''')
-        noreplace_write(text, 'If only you had something to catch it in...')
+        noreplace_write(text, '''If only you had something to catch it in...
+[See crafting button for more info]''')
         #continue
     elif cmd.item == 'seagull' and character.room == beach1:
         write(text, 'You try to grab the seagull... but it poops on your head.')
         #continue
+    elif cmd.item == 'goat' and character.room == mountain1:
+        write('No, you cannot get the goat!')
     elif item in character.room['items'] and item['getable'] and len(character.inventory) < 10:
         write(text, 'You picked up the ' + cmd.item + '''. 
-You can examine it using 'ex' or 'examine'.''')
+You can examine it using 'ex ____' or 'examine____'.''')
         if item['name'] == 'book':
             noreplace_write(text, '''(You can read the book by typing 'ex')''')
+        elif item['name'] == 'flower':
+            noreplace_write(text, '''You can Use a flower to make string''')    
         character.room['items'].remove(item)
         get(item, character)
+        if item['edible']:
+            noreplace_write(text, '''
+Looks tasty....''')
     elif len(character.inventory) == 10:
         write(text, '''Sorry, your inventory is full. You cannot carry more than 10 items.
 perhaps you could drop something to make room?''')
@@ -167,16 +175,18 @@ def use_command(character, item, toolslist):
                     write(text, item['string'])
                     noreplace_write(text, 'You didn\'t catch a fish. Better luck next time!')
             elif item == starflower:
+                character.inventory.remove(item)
                 write(text, '''The goat slowly approaches you, eyeing the starflower in your hand.
 Being the kind person that you are, you offer the goat your flower
 and it quickly gobbles it up. The goat looks at you, its eyes
-twinkling with years of wisdom, and speaks. 
-'Where water doth lie 
+twinkling with years of wisdom, and speaks.
+ 
+Where water doth lie 
 And crickets do buzz 
 There you will find a great secret 
 Every hunter has seeked it, but 
 Ruthless in his ways 
-Failed to learn of the entrance 
+Failed to learn of the Entrance 
 All clues doth lead to it 
 Letters tumbling down
 Leaving you with a message' it says. 
@@ -255,6 +265,7 @@ def eat_command(cmd, character, item):
             if character.health > 20:
                 character.health = 20
             noreplace_write(text, 'Your health level is now ' + str(character.health) + '/20')
+            noreplace_write(text, 'You gained ' + str(item['health']) + 'HP.')
         else:
             write(text, 'You aren\'t in need of energy just now')
             #continue
@@ -320,19 +331,23 @@ def south_command(character):
           write(text, 'You can\'t go that way!')    
 
 
-def examine_command(item):
-    write(text, 'This is the info on the ' + item['name'])
-    noreplace_write(text, 'Name: ' + item['name'])
-    noreplace_write(text, 'Description: ' + item['desc'])
-    noreplace_write(text, 'Getable: ' + str(item['getable']))
-    noreplace_write(text, 'Edible: ' + str(item['edible']))
-    noreplace_write(text, 'Usable: ' + str(item['usable']))
-    if item['usable'] == True:
-        namelist = [i['name'] for i in item['ingredients']]
-        noreplace_write(text, 'Ingredients:' + str(namelist))
+def examine_command(item, cmd):
+    if cmd.item == 'waterfall':
+        noreplace_write(text, '''You look deeply at the waterfall. Seems like there is something - 
+behind it?''')
     else:
-        noreplace_write(text, 'Ingredients: N/A')
-    noreplace_write(text, 'HP avaliable: ' + str(item['health']))
+        write(text, 'This is the info on the ' + item['name'])
+        noreplace_write(text, 'Name: ' + item['name'])
+        noreplace_write(text, 'Description: ' + item['desc'])
+        noreplace_write(text, 'Getable: ' + str(item['getable']))
+        noreplace_write(text, 'Edible: ' + str(item['edible']))
+        noreplace_write(text, 'Usable: ' + str(item['usable']))
+        if item['name'] in ['rod', 'pickaxe', 'axe', 'flint']:
+            namelist = [i['name'] for i in item['ingredients']]
+            noreplace_write(text, 'Ingredients:' + str(namelist))
+        else:
+            noreplace_write(text, 'Ingredients: N/A')
+        noreplace_write(text, 'HP available: ' + str(item['health']))
 
 
 def enter_command(character):
@@ -393,6 +408,9 @@ def make_command(item, character, makelist):
                 character.inventory.remove(i)
             get(item, character)
             write(text, 'You made an ' + item['name'] + '. Check it out with \'ex\'')
+            if item == flint:
+                noreplace_write(text, '''Now all I need to make a fire is some wood! Now where can I find an
+axe...''')
     else:
         write(text, 'You can\'t make that...')
 
@@ -423,7 +441,7 @@ def drop_command(character, item):
     for i in character.inventory:
         if i['name'] == item['name'] and forloop == True:
             character.inventory.remove(i)
-            print('coconuts!')
+            character.room['items'].append(i)
             forloop = False
 
 
@@ -440,7 +458,11 @@ def read_command():
 
 
 def death(character):
-    noreplace_write(text, 'You died. Would you like to respawn?')
+    noreplace_write(text, 'You died. Would you like to respawn? (yes/no)')
+    character.room = beach1
+    character.inventory = []
+    roomreset()
+    character.health = -5
     character.status = False
     
 def end1_command(character):
@@ -454,9 +476,9 @@ feel a sense of triumph as you realise it's a red rescue helicopter.
 It lands, and invites you aboard.
 
 Congratulations! You successfully made your escape from the
-deserted island in ''' + str(character.token + 1) + '''!
+deserted island in ''' + str(character.token + 1) + '''turns!
 But, there's another, secret ending you have yet
-to discover. Do you want to continue playing?''')
+to discover. Do you want to continue playing? (yes/no)''')
 
 def continue_command(character):
     write(text, '''Ok. Here's a secret clue that you might need to help things along.
@@ -491,12 +513,13 @@ def cheat_ending2(character):
     character.status = 'end2'
     
 def end2_enter(character):
-    write(text, 'Congratulations! You successfully escaped the deserted island in ' + str(character.token + 1) + ''' 
+    write(text, 'Congratulations! You successfully escaped the deserted island in ' + str(character.token + 1) + '''
+turns!
 Nice job on finding the secret ending! But perhaps you haven't had
 the chance to complete the regular ending... (although, considering
 your newfound powers, ought to be all to easy.(if you can figure out
 how you should use them!))
-Do you want to continue playing?''')
+Do you want to continue playing? (yes/no)''')
 
 def credits_command():
     write(text, '''

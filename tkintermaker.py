@@ -38,11 +38,8 @@ def much(character):
         musicfile = character.room['music']
     else:
         musicfile = 'ocean.wav'
-    print(musicfile)
     if os.path.isfile(musicfile):
         PlaySound(musicfile, winsound.SND_ASYNC|winsound.SND_LOOP)
-    else:
-        print('error: musicfile %s is nonexistent' % musicfile)
 
 
 canvas = Canvas(width = 533, height = 533)

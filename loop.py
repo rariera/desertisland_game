@@ -14,7 +14,6 @@ def entryget(Event = None):
 	global userinput
 	userinput = entry.get()
 	entry.delete(0,'end')
-	print(userinput)
 
 global turn_no
 turn_no = 0
@@ -28,6 +27,14 @@ def dispcred():
 def disphelpb():
     check_command.disphelp()
 
+def dispcraft():
+    check_command.crafting()
+
+def exitbutton():
+    check_command.exithelp()
+    
+def lookbutton():
+    check_command.lookie()
 
 def loop(self):
     entryget()
@@ -48,11 +55,19 @@ invent = Button(text = 'Inventory', command = dispinv)
 invent.grid(column = 3, row = 4)
 
 credits = Button(text = 'Credits', command = dispcred)
-credits.grid(column = 3, row = 5)
+credits.grid(column = 4, row = 5)
 
 helpbutton = Button(text = 'Help', command = disphelpb)
 helpbutton.grid(column = 3, row = 3)
 
+craftbutton = Button(text = 'Crafting', command = dispcraft)
+craftbutton.grid(column = 3, row = 5)
+
+exitbutton = Button(text = 'Exit Help', command = exitbutton)
+exitbutton.grid(column = 4, row = 3)
+
+lookbutton = Button(text = 'Look', command = lookbutton)
+lookbutton.grid(column = 4, row = 4)
 
 
 

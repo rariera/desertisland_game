@@ -22,12 +22,12 @@ You see a shelf of rock to the east,
 To the west, the beach stretches out of sight.
 The jungle is to the north of you and the ocean the south.
 The sun blazes on above you.
-If you are unsure what to do, type 'help'.''')
+If you are unsure what to do, type 'help'.
+Try 'look'-ing!''')
 
 
     InitTuple = collections.namedtuple('InitTuple', ['turn_no'])
     tkintermaker.much('beach1')
-    print('initialisation has completed')
     roomreset()
     global turn_no
     turn_no = 0

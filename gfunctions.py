@@ -46,17 +46,17 @@ def chooseroom(character):
     elif character.loc == [3.5, 3]:
         character.room = cave1
     else:
-        print('I can\'t choose a room!!!')
+        character.room = beach1
 
 def roomreset():
     beach1['items'] = [coconut1, coconut2, coconut3, rope, seagull]
-    rocks1['items'] = [rock, starfish, shellfish]
-    jungle1['items'] = [stick1, stick2, vine, berry1, berry2, berry3, berry4]
+    rocks1['items'] = [rock4, rock5, starfish, shellfish]
+    jungle1['items'] = [stick1, stick2, vine1, vine2, berry1, berry2, berry3, berry4]
     clearing1['items'] = []
-    mountain1['items'] = [rock]
+    mountain1['items'] = [rock1, rock2, rock3]
     village1['items'] = []
-    house1['items'] = [rod, book]
-    waterfall1['items'] = []
+    house1['items'] = [rod, book, bone1, bone2, bone3]
+    waterfall1['items'] = [vine3]
     hill1['items'] = [flower1, flower2, flower3, flower4, flower5]
     cliff1['items'] = [starflower]
     

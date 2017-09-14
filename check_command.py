@@ -16,7 +16,7 @@ def check_command(cmd, item, collection, toolslist, makelist):
         if cmd.verb in ['help', 'h']:
             help_command(character)
         elif cmd.verb in ['look', 'l']:
-            verbiage = look_command(character)
+            look_command(character)
         elif cmd.verb == '_items':
             verbiage = items_command(character.room)
         elif cmd.verb in ['get']:
@@ -38,7 +38,7 @@ def check_command(cmd, item, collection, toolslist, makelist):
         elif cmd.verb in ['south','s']:
             south_command(character)
         elif cmd.verb in ['examine', 'ex']:
-            examine_command(item)
+            examine_command(item, cmd)
         elif cmd.verb in ['enter']:
             enter_command(character)
         elif cmd.verb in ['exit']:
@@ -81,7 +81,7 @@ def check_command(cmd, item, collection, toolslist, makelist):
         elif cmd.verb == 'food':
             food_command()
         elif cmd.verb == 'crafting':
-            crafting_command()
+            crafting_command(character)
         elif cmd.verb in ['HP', 'hp', 'health']:
             hpinfo_command()
         elif cmd.verb == 'secret':
@@ -96,7 +96,7 @@ def check_command(cmd, item, collection, toolslist, makelist):
         else:
             exit()
     elif character.status == 'end2':
-        if cmd.verb in ['yes', 'y']:
+        if cmd.verb in ['yes', 'y', 'respawn']:
             continue2_command(character)
             character.status = 'alive'
             character.health = 20
@@ -105,7 +105,7 @@ def check_command(cmd, item, collection, toolslist, makelist):
         else:
             end2_enter(character)
     else:
-        if cmd.verb in ['yes', 'y']:
+        if cmd.verb in ['yes', 'y', 'respawn']:
             initialisation()
             character.status = 'alive'
             character.health = 20
@@ -126,9 +126,18 @@ def dispinvent():
 
 def disphelp():
     help_command(character)
+    
+def crafting():
+    crafting_command(character)
 
 def credits():
     credits_command()
+
+def exithelp():
+    leave_command(character)
+
+def lookie():
+    look_command(character)
     
 def mini(entry, program):
     entry.bind('<Return>', program)
