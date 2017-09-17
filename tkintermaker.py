@@ -5,6 +5,7 @@ import sys
 from winsound import PlaySound
 import winsound
 import os
+from rooms import *
 
 _root = Tk()
 _root.configure(bg = 'blue4')
@@ -22,7 +23,15 @@ def animation():
         return
     _root.after(200, animation)
 
-
+def enimation():
+    if enimation.index == -1:
+        return
+    imagecanvas = canvas.create_image(0, 0, anchor = NW, image = _endframes[enimation.index])
+    enimation.index = enimation.index + 1
+    if enimation.index >= 45:
+        imagecanvas = canvas.create_image(0,0, anchor = NW, image = ImageTk.PhotoImage(file = 'beach.png'))
+        return
+    _root.after(100, enimation)
 
 def showimg():
     imagecanvas = canvas.create_image(0,0, anchor = NW, image = _image)
@@ -32,6 +41,12 @@ def showoimg():
     animation.index = 0
     animation()
     _root.photo = _photo
+
+def shoeimg():
+    enimation.index = 0
+    enimation()
+    _root.photo = _photo
+    beach1['background'] = 'beachend.png'
     
 def much(character):
     if character != 'beach1':
@@ -46,7 +61,7 @@ canvas = Canvas(width = 533, height = 533)
 text = ScrolledText.ScrolledText(width = 70, height = 15)
 _frames = [ PhotoImage(file='beginning.gif', format = 'gif -index %i' % i) for i in range(0,31) ]
 _photo = ImageTk.PhotoImage(file = 'desert.png')
-
+_endframes = [ PhotoImage(file='ending1.gif', format = 'gif -index %i' % i) for i in range(0,46) ]
 showoimg()
 
 def bach(character):

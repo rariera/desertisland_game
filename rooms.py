@@ -72,7 +72,7 @@ mountain1 = {
     'location': [3,2],
     'setting': '''You find yourself at the foot of an impassable mountain. Around you,
 rocks litter the ground, threatening to trip you at every turn.
-To your ease, a short dirt path leads to a waterfall, overflowing
+To your east, a short dirt path leads to a waterfall, overflowing
 into a mountain spring.
 From here, one can see over the dense vegetation of the jungle,
 showing the island in its' entirety. You feel very powerful, like
@@ -86,7 +86,7 @@ There is a pile of rocks here.
 [You can use a pickaxe here, to get steel. The trail continues to the
 south and east.]''',
     'tools': [pickaxe, starflower],
-    'items': [rock1, rock2, rock3, coconut],
+    'items': [rock1, rock2, rock3],
     'background': 'mountains.png',
     'music': 'wind.wav'
     }
@@ -139,12 +139,12 @@ waterfall1 = {
 rushing quickly into the mountain spring at your feet. As it hits the
 surface of the water, it sends up white froth in all directions. A
 long vine hangs down, begging for you to grasp it and jump in to the
-cool, refreshing water. To your west, there is a short dirt path, 
+cool, refreshing water. There is a stick here. To your west, there is a short dirt path, 
 leading back to the mountain. To the south lies a grassy hillside, 
 covered with wildflowers.
 [You can fish here with a rod. The trail continues to the west and south.]''',
     'tools': [rod],
-    'items': [vine3],
+    'items': [vine3, stick3],
     'background': 'waterfall.png',
     'music': 'waterfall.wav'
     }
@@ -154,11 +154,11 @@ hill1 = {
 	'location': [2,3],
 	'setting': '''You stand on a grassy hillside, surrounded by flowers. The wind
 whistles through the grass, causing it to roll in waves around you.
-to the south of you lies a path uphill leading to a cliff, to the 
-north of you lies the waterfall.
+There is a rock here. To the south of you lies a path uphill leading
+to a cliff, to the north of you lies the waterfall.
 [You can go to the north, or south]''',
 	'tools': [],
-	'items': [flower1, flower2, flower3, flower4, flower5, rock1],
+	'items': [flower1, flower2, flower3, flower4, flower5, rock4],
         'background': 'hill.png',
         'music': 'hills.wav'
 	}

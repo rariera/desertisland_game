@@ -55,7 +55,7 @@ def check_command(cmd, item, collection, toolslist, makelist):
             die_command(character)
         elif cmd.verb == '_five':
             five_command(character)
-        elif cmd.verb == 'drop':
+        elif cmd.verb in ['drop', 'd']:
             drop_command(character, item)
         elif cmd.verb == '_end1':
             cheat_ending1(character)

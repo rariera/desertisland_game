@@ -74,6 +74,7 @@ could have been, and what it may yet become.''',
     }
 stick1 = copy.copy(stick)
 stick2 = copy.copy(stick)
+stick3 = copy.copy(stick)
 vine = {
     'name': 'vine',
     'desc': '''You pull on a vine. It comes off in your hand. Easy to break, but may
@@ -112,6 +113,7 @@ the kind known as 'sandstone'....''',
 rock1 = copy.copy(rock)
 rock2 = copy.copy(rock)
 rock3 = copy.copy(rock)
+rock4 = copy.copy(rock)
 book = {
     'name': 'book',
 	'desc': '''Tattered and beaten, this book seems to be ancient

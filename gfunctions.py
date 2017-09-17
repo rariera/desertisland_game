@@ -56,8 +56,8 @@ def roomreset():
     mountain1['items'] = [rock1, rock2, rock3]
     village1['items'] = []
     house1['items'] = [rod, book, bone1, bone2, bone3]
-    waterfall1['items'] = [vine3]
-    hill1['items'] = [flower1, flower2, flower3, flower4, flower5]
+    waterfall1['items'] = [vine3, stick3]
+    hill1['items'] = [flower1, flower2, flower3, flower4, flower5, rock4]
     cliff1['items'] = [starflower]
     
 

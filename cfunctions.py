@@ -3,7 +3,7 @@ import items
 from classes import Output
 from initialisation import initialisation
 import tkintermaker
-from tkintermaker import bach, much
+from tkintermaker import bach, much, shoeimg
 from gfunctions import chooseroom, get, invcheck, roomreset
 import random
 
@@ -92,6 +92,7 @@ Pickaxe - rock, vine, stick
 Rod - stick, string, bone
 Flint - rock, steel
 
+Hint: You can get string for making a rod by using a flower...
 You can examine the items to learn more ('ex ____')
 ''')
     if character.status == 'help':
@@ -141,7 +142,7 @@ disdain.''')
         write(text, 'You try to grab the seagull... but it poops on your head.')
         #continue
     elif cmd.item == 'goat' and character.room == mountain1:
-        write('No, you cannot get the goat!')
+        write(text, 'No, you cannot get the goat!')
     elif item in character.room['items'] and item['getable'] and len(character.inventory) < 10:
         write(text, 'You picked up the ' + cmd.item + '''. 
 You can examine it using 'ex ____' or 'examine____'.''')
@@ -466,7 +467,8 @@ def death(character):
     character.status = False
     
 def end1_command(character):
-    noreplace_write(text, '''
+    shoeimg()
+    write(text, '''
 Your fire burns higher and higher. Huge columns of smoke begin to
 billow into the sky. You scan the horizon, hoping to see some kind of
 ship or aircraft, but to no avail.
@@ -476,7 +478,7 @@ feel a sense of triumph as you realise it's a red rescue helicopter.
 It lands, and invites you aboard.
 
 Congratulations! You successfully made your escape from the
-deserted island in ''' + str(character.token + 1) + '''turns!
+deserted island in ''' + str(character.token + 1) + ''' turns!
 But, there's another, secret ending you have yet
 to discover. Do you want to continue playing? (yes/no)''')
 
